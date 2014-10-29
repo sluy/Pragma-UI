@@ -10,7 +10,9 @@ Por los momentos está bajo desarrollo. Pronto estará activo para descargas!.
 El proyecto nació en latinoamérica y será migrado a otras lenguas, para diversificar su uso y aprendizaje, pero siempre manteniendo como objetivo primordial la enseñanza y capacitación en español.
 
 Sitio web : http://www.pragmaui.com
+
 Documentación : http://www.pragmaui.com/docs/
+
 Descarga : http://www.pragmaui.com/descargas/
 
 
