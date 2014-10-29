@@ -1,0 +1,116 @@
+@-webkit-keyframes progressbar-active {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@-o-keyframes progressbar-active {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes progressbar-active {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.progress-bar{
+	.size(@control-height,100%);
+	overflow: hidden;
+	border: 1px solid @gray-light;
+	background-color: @gray-lighter;
+    position: relative;
+    line-height:@control-height;
+    overflow:hidden;
+	
+	& > .bar{
+		display: inline-block;
+        overflow:hidden;
+		height: 100%;
+		width: auto;
+		background-color: @gray-light;
+		color: @light;
+	    text-align: center;
+        line-height:inherit;
+        font-size:inherit;
+	}
+    & > label
+    {
+        position:absolute;
+        width:100%;
+        height:100%;
+        line-height:inherit;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        font-weight:@font-weight-bold;
+        color:@light;
+	    text-align: center;
+        text-shadow: 0px 0px 1px darken(@gray-light,30%);
+        font-size:inherit;
+    }
+
+    &.xs
+    {
+        height:@control-xs-height;
+        line-height:@control-xs-height;
+        font-size: @font-size-small;
+    }
+    &.sm
+    {
+        height:@control-sm-height;
+        line-height:@control-sm-height;
+        font-size: @font-size-small;
+    }
+    &.lg
+    {
+        height:@control-lg-height;
+        line-height:@control-lg-height;
+        font-size: @font-size-large;
+    }
+
+    &.zebra > .bar,
+    &.active > .bar
+    {
+        background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+        background-image:      -o-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+        background-image:         linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+        -webkit-background-size: 40px 40px;
+                background-size: 40px 40px;
+    }
+
+    &.active > .bar
+    {
+      -webkit-animation: progressbar-active 2s linear infinite;
+           -o-animation: progressbar-active 2s linear infinite;
+              animation: progressbar-active 2s linear infinite;
+    }
+
+    &.rounded
+    {
+        .rounded-borders();
+    }
+
+    &.circular
+    {
+        .circular-borders();
+    }
+}
+
+.progress-theme(inverse,@gray-darker);
+.progress-theme(primary,@primary);
+.progress-theme(secondary,@secondary);
+.progress-theme(success,@success);
+.progress-theme(tip,@tip);
+.progress-theme(warning,@warning);
+.progress-theme(danger,@danger);

@@ -1,0 +1,31 @@
+ul.breadcrumb{
+	display: block;
+	width: 100%;
+	list-style: none;
+	margin: 0;
+	padding: floor(@grid-column-margin/2) floor(@grid-column-margin/2);
+	font-size: @font-size-small;
+	background-color: @gray-lighter;
+	& > li{
+		display:inline-block;
+		margin-right:floor(@grid-column-margin/2) - 5;
+		&.active a{
+			&,
+			&:visited,
+			&:hover{
+				color: @text-color;
+				cursor: default;  
+			}
+		}
+		&:after{
+			content:"";
+			.triangle-left(5px,@primary);
+			margin-left:floor(@grid-column-margin/2);
+		}
+
+		&:last-child:after{
+			content: "";
+			border:none;
+		}
+	}
+}

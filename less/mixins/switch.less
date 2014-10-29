@@ -1,0 +1,12 @@
+.switch-theme(@name,@on-color,@off-color:@gray-light,@bg-color:@gray-lighter,@bg-border-color:@gray-light){
+  .switch.@{name}{
+    background-color: @bg-color;
+    border-color: @bg-border-color;
+    & label{
+      background-color: @off-color;
+    }
+    & input[type=checkbox]:checked + label{
+      background-color: @on-color;
+    }
+  }
+}

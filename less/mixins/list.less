@@ -1,0 +1,23 @@
+.list-unstyled(){
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.list-inline(){
+	display: inline-block;
+	height: auto;
+	width:  auto;
+	padding-left: 0;
+	margin: 0px 0px;
+	list-style: none;
+  & > li{
+		display: inline-block;
+		height: 100%;
+		width: auto;
+		margin-left: -5px;
+		&:last-child{
+			margin-left: 0px;
+		}
+	}
+}

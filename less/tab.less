@@ -1,0 +1,114 @@
+.tabs-theme(@name, @border-color){
+	ul.tabs.@{name},
+	ul.tabs.vertical.right.@{name}
+	{
+		& > li.active > a,
+		& > li.active > a:hover,
+		& > li.active > a:visited,
+		& > li:not(.disabled) > a:hover{
+			border-color: @border-color;
+		}
+	}
+	ul.tabs > li:not(.disabled).@{name},
+	ul.tabs.vertical.right > li:not(.disabled).@{name}
+	{
+		&.active > a,
+		&.active > a:hover,
+		&.active > a:visited,
+		& > a:hover{
+			border-color: @border-color;
+		}
+	}
+}
+
+
+ul.tabs{
+	.size(auto,100%);
+	line-height: @control-height;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	border-bottom: 1px solid @gray-light;
+	margin-bottom: floor(@grid-column-margin/2);
+	
+	&.right{
+		text-align: right;
+	}
+	
+	&.vertical{
+		border-bottom: none;
+		border-right: 1px solid @gray-light;
+		text-align:left;
+		& > li{
+			display: block;
+			margin-left: 0px;
+			width: 100%;
+			& > a,
+			& > a:visited{
+				border-bottom: none;
+				border-right: 3px solid transparent;
+			}
+
+		}
+		
+		&.right {
+			border-right: none;
+			border-left: 1px solid @gray-light;
+			& > li > a,
+			& > li > a:visited{
+				border-right: none;
+				border-left: 3px solid transparent;
+			}
+			/*Por alguna razón no toma la config base, sobreescribimos...*/
+			& > li.active > a,
+			& > li.active > a:hover,
+			& > li.active > a:visited,
+			& > li > a:hover{
+				border-color: @gray-darker;
+			}
+			& > li.disabled > a,
+			& > li.disabled > a:hover,
+			& > li.disabled > a:visited{
+				border-color: transparent;
+			}
+		}
+	}
+	
+	& > li{
+		display: inline-block;
+		margin-left:-5px;
+		
+		&:first-child{
+			margin-left: 0px;
+		}
+		& > a,
+		& > a:visited{
+			display: block;
+			padding:  floor(floor(@grid-column-margin/2)/2) floor(@grid-column-margin/2);
+			border-bottom: 3px solid transparent;
+			color: lighten(@text-color,30%);
+		}
+		&.active > a,
+		&.active > a:hover,
+		&.active > a:visited,
+		& > a:hover{
+			color: @text-color;
+			border-color: @gray-darker;
+		}
+      
+		&.disabled > a,
+		&.disabled > a:hover,
+		&.disabled > a:visited{
+			color: @gray-light;
+			border-color: transparent;
+		}
+	}
+
+}
+
+.tabs-theme(primary,@primary);
+.tabs-theme(secondary,@secondary);
+.tabs-theme(success,@success);
+.tabs-theme(tip,@tip);
+.tabs-theme(warning,@warning);
+.tabs-theme(danger,@danger);

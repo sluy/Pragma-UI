@@ -1,0 +1,51 @@
+.sidenav-theme(@name, @bg-color, @border-color:darken(@bg-color,15%), @header-color: darken(@bg-color,15%),@font-color: @light)
+{
+	ul.sidenav.@{name}
+	{
+		background-color: @bg-color;
+		border-color:@border-color;
+		& > li{
+			&.header{
+				color: @font-color;
+				background-color: @header-color;
+			}
+			
+			
+			&.subheader{
+				color: @font-color;
+				background-color: lighten(@header-color,10%);
+			}
+			&.divider{
+				border-bottom-color:lighten(@bg-color,6%);
+				background-color: darken(@bg-color,6%);
+			}
+			
+			
+			
+			& > a,
+			& > a:visited{
+					color: @font-color;
+			}
+			& > a:hover{
+				background-color: lighten(@bg-color,10%);
+			}
+			
+			/*Item activo*/
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:visited{
+				color: @font-color;
+				background-color: transparent;
+			}
+			/*Item deshabilitado*/
+			&.disabled > a,
+			&.disabled > a:hover,
+			&.disabled > a:visited
+			{
+				color: @font-color;
+				opacity: 0.4;
+				background: transparent;
+			}
+		}
+	}
+}

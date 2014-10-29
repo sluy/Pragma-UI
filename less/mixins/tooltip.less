@@ -1,0 +1,31 @@
+.tooltip-theme(@name,@bg-color,@color:@light,@border-color:darken(@bg-color,10%)){
+	.tooltip.@{name}{
+		background-color: @bg-color;
+		color: @color;
+		border-color:@border-color;
+		&.top:before{
+			border-top-color: @border-color;
+		}
+		&.top:after{
+			border-top-color: @bg-color;
+		}
+		&.bottom:before{
+			border-bottom-color: @border-color;
+		}
+		&.bottom:after{
+			border-bottom-color: @bg-color;
+		}
+		&.left:before{
+			border-left-color: @border-color;
+		}
+		&.left:after{
+			border-left-color: @bg-color;
+		}
+		&.right:before{
+			border-right-color: @border-color;
+		}
+		&.right:after{
+			border-right-color: @bg-color;
+		}
+	}
+}

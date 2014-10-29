@@ -1,0 +1,206 @@
+/******************************
+	BARRA DE ÍCONOS
+ *******************************/
+ul.iconbar
+{
+	display: block;
+	width: 100%;
+	list-style: none;
+	margin: 0px;
+	padding:0px;
+	text-align: center;
+	background-color: @gray-lighter;
+	.clearfix();
+	.margin-vertical(@grid-column-margin);
+
+	/*Barra con sombra*/
+	&.shadow{
+		.drop-shadow(0px,1px,3px,rgba(0,0,0,1));
+	}
+
+	/*Elimina el margen superior e inferior*/
+	&.collapse{
+		.margin-vertical(0px);
+	}
+	/*Barra flotante arriba*/
+	&.fixed-top{
+		position: fixed;
+		top: 0;
+	}
+	/*Barra flotante abajo*/
+	&.fixed-bottom{
+		position: fixed;
+		bottom: 0;
+	}
+
+
+	/*Bordes redondeados para la barra de íconos horizontal*/
+	&.rounded:not(.vertical)
+	{
+		.rounded-borders();
+		& > li:first-child
+		{
+			& > a,
+			& > a:visited
+			{
+				.rounded-left-borders();
+			}
+			
+		}
+		& > li:last-child
+		{
+			& > a,
+			& > a:visited
+			{
+				.rounded-right-borders();
+			}
+		}
+	}
+	/*Bordes circulares para la barra de íconos horizontal*/
+	&.circular:not(.vertical)
+	{
+		.circular-borders();
+		& > li:first-child
+		{
+			& > a,
+			& > a:visited
+			{
+				.circular-left-borders();
+			}
+			
+		}
+		& > li:last-child
+		{
+			& > a,
+			& > a:visited
+			{
+				.circular-right-borders();
+			}
+		}
+	}
+
+
+	/* Elementos de la barra */
+	& > li
+	{
+		display: table;
+		float: left;
+		vertical-align: middle;
+
+		& > a,
+		& > a:visited,
+		{
+			display: table-cell;
+			vertical-align: middle;
+			.padding-vertical(@grid-column-margin);
+			color: @gray;
+			/*ícono en imagen*/
+			& > img
+			{
+				max-width: 40px;
+				height:auto;
+			}
+			/*ícono en librerías como Font Awesome*/
+			& > i
+			{
+				font-size: 30px;
+			}
+			/*Título del elemento*/
+			& > label
+			{
+				display: block;
+				cursor:inherit;
+				font-size: @font-size-small;
+			}
+		}
+
+		/*Elementos activos y "hover"*/
+		& > a:hover,
+		&.active > a,
+		&.active > a:hover,
+		&.active > a:visited{
+			background-color: @gray-light;
+		}
+		/*Elementos deshabilitados*/
+		&.disabled > a,
+		&.disabled > a:hover,
+		&.disabled > a:visited{
+			.opacity(0.4);
+			background-color: transparent;
+		}
+	}
+	/*Menú vertical*/
+	&.vertical
+	{
+		width: 80px;
+		& > li
+		{
+			display: block;
+			float:none;
+			& > a,
+			& > a:visited,
+			{
+				display: block;
+			}
+		}
+
+		/*Estilo redondeado para el menú vertical*/
+		&.rounded
+		{
+			.rounded-top-borders();
+			.rounded-bottom-borders();
+			& > li:first-child
+			{
+				& > a,
+				& > a:visited
+				{
+					.rounded-top-borders();
+				}
+			}
+			& > li:last-child
+			{
+				& > a,
+				& > a:visited
+				{
+					.rounded-bottom-borders();
+				}
+			}
+		}
+		
+		/*Estilo circular para el menú vertical*/
+		&.circular
+		{
+			.circular-top-borders();
+			.circular-bottom-borders();
+			& > li:first-child
+			{
+				& > a,
+				& > a:visited
+				{
+					.circular-top-borders();
+				}
+			}
+			& > li:last-child
+			{
+				& > a,
+				& > a:visited
+				{
+					.circular-bottom-borders();
+				}
+			}
+		}
+
+	}
+}
+
+/*Generar tamaños de los ítems de la barra*/
+.generate-iconbar-sizes(12);
+
+/*Generar temas visuales*/
+.iconbar-theme(primary,@primary);
+.iconbar-theme(secondary,@secondary);
+.iconbar-theme(success,@success);
+.iconbar-theme(tip,@tip,@light);
+.iconbar-theme(warning,@warning);
+.iconbar-theme(danger,@danger);
+.iconbar-theme(inverse,@gray-darker,@light,@primary);

@@ -1,0 +1,30 @@
+ 
+.iconbar-theme(@name,@bg,@color : @light,@active-bg : darken(@bg,20%)){
+	ul.iconbar.@{name}{
+		background-color: @bg;
+		& > li > a,
+		& > li > a:visited{
+			color: @light;
+		}
+		
+		& > li > a:hover,
+		& > li.active > a,
+		& > li.active > a:hover,
+		& > li.active > a:visited{
+			background-color: @active-bg;
+		}
+		& > li.disabled > a,
+		& > li.disabled > a:hover,
+		& > li.disabled > a:visited{
+			background-color: transparent;
+			opacity:0.4;
+		}
+	}
+}
+
+.generate-iconbar-sizes(@size) when (@size > 0) {
+	.generate-iconbar-sizes((@size - 1));    // next iteration
+	ul.iconbar.cols-@{size}:not(.vertical) > li{
+		width: 100/@size * 1%;
+	}
+}

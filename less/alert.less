@@ -1,0 +1,47 @@
+/******************************
+  ALERTAS
+*******************************/
+.alert{
+  display:block;
+  .size(auto,100%);
+  background-color: @gray-lighter;
+  border: 1px solid @gray-light;
+  .padding(@grid-column-margin);
+	margin: floor(@grid-column-margin/2) 0px;
+  color: @text-color;
+  //Boton para cerrar la alerta
+  & > a.close_button{
+    .position(right);
+    margin-top: -@grid-column-margin/2;
+    margin-right: -@grid-column-margin/2/2;
+    &,
+    &:visited{
+      color: @text-color;
+      .opacity(0.8);
+    }
+    &:hover{
+      .opacity(1);
+    }
+  }
+  //Redondeada
+  &.rounded{
+    .rounded-borders();
+  }
+  //Circular
+  &.circular{
+    .padding-horizontal(@grid-column-margin*2);
+    .circular-borders();
+  }
+  //Con sombra
+  &.shadow{
+    .drop-shadow(0px,1px,2px,fade(@dark, 90%));
+  }
+}
+//Temas
+.alert-theme(primary,@light,@primary);
+.alert-theme(secondary,@light,@secondary);
+.alert-theme(success,@light,@success);
+.alert-theme(tip,@light,@tip);
+.alert-theme(warning,@light,@warning);
+.alert-theme(danger,@light,@danger);
+.alert-theme(inverse,@light,@gray-darker);

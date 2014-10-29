@@ -1,0 +1,119 @@
+/******************************
+  VENTANAS MODALES
+*******************************/
+//Fondo de los modales.
+.modal-bg{
+  position: fixed;
+  top:0px;
+  left: 0px;
+  z-index: @modal-zindex;
+  .size(100%,100%);
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 50px 50px;
+  //Tema claro
+  &.light
+  {
+    background-color: rgba(255,255,255,0.8);
+  }
+  //Tema oscuro
+  &.dark
+  {
+    background-color: rgba(0,0,0,0.8);
+  }
+  //Tema transparente
+  &.transparent
+  {
+    background-color: transparent;
+  }
+}
+//Ventana modal
+.modal{
+  position:relative;
+  display: none;
+  .size(auto,80%);
+  margin: 0 auto;
+  .padding(@grid-column-margin);
+  background: @body-bg;
+  .drop-shadow(0px,1px,5px,rgba(50, 50, 50, 0.75));
+	min-width:210px;
+  //Botón de cerrado.
+  & > a.modal-close,
+  & > a.modal-close:visited{
+    float:right;
+    margin-top:-10px;
+    margin-right:-10px;
+    cursor:pointer;
+    color: @gray-dark;
+    line-height: 15px;
+    font-size: 25px;
+    text-align: center;
+    &:hover{
+      color:@dark;
+    }
+  }
+  //Modal sin padding.
+  &.collapse{
+    .padding-reset();
+    & > .modal-close{
+      margin-top: 4px;
+      margin-right: 4px; 
+    }
+  }
+  //Modal con estilo : se pueden definir header, body y footer.
+  &.styled{
+    .padding-reset();
+    //redefiniendo la posición del botón para cerrar la ventana.
+    & > .modal-close{
+      margin-top: 4px;
+      margin-right: 4px; 
+    }
+    //header
+    & > .header{
+     .padding(@grid-column-margin);
+      background: @gray-lighter;
+      border-bottom: 1px solid @gray-light;
+    }
+    //body
+    & > .body{
+      width: 100%;
+      .padding(@grid-column-margin)
+    }
+    //footer
+    & > .footer{
+      .padding(@grid-column-margin);
+      background: @gray-lighter;
+      border-top: 1px solid @gray-light;
+    }
+  }
+  //Tamaños.
+  &.xs{
+    width: 50%;
+  }
+  &.sm{
+    width: 70%;
+  }
+  &.lg{
+    width: 90%;
+  }
+  //Bordes redondeados.
+  &.rounded{
+    .rounded-borders();
+    &.rounded.styled > .header{
+      .rounded-top-borders();
+    }
+    &.rounded.styled > .footer{
+      .rounded-bottom-borders();
+    }    
+  }
+  //Bordes circulares.
+  &.circular{
+    .circular-borders();
+    &.circular.styled > .header{
+      .circular-top-borders();
+    }
+    &.circular.styled > .footer{
+      .circular-bottom-borders();
+    }    
+  }
+}

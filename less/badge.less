@@ -1,0 +1,44 @@
+/*******************************
+ * INSIGNIAS
+ *******************************/
+.badge,
+.badge:active,
+.badge:hover,
+.badge:visited,
+a .badge,
+a:active .badge,
+a:hover  .badge,
+a:visited .badge{
+  color:@light;
+  font-size: 75%;
+  background-color: @gray-light;
+	line-height: inherit;
+	vertical-align: middle;
+	padding: 1px 5px;
+  &:empty{
+    font-size: 0px;
+    .padding(0px);
+  }
+}
+.rounded .badge,
+.badge.rounded{
+  .rounded-borders();
+}
+.circular .badge,
+.badge.circular{
+  .circular-borders();
+}
+.active .badge{
+  color: @primary;
+  background-color: @light;
+}
+.disabled .badge{
+  background-color: @gray-lighter;
+}
+.badge-theme(inverse,@gray-darker,@light);
+.badge-theme(primary,@primary,@light);
+.badge-theme(secondary,@secondary,@light);
+.badge-theme(success,@success,@light);
+.badge-theme(tip,@tip,@light);
+.badge-theme(warning,@warning,@light);
+.badge-theme(danger,@danger,@light);

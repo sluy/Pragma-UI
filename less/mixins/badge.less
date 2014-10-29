@@ -1,0 +1,13 @@
+.badge-theme(@name,@bg-color,@color){
+  .badge.@{name},
+  .badge.@{name}:active,
+  .badge.@{name}:hover,
+  .badge.@{name}:visited,
+  a .badge.@{name},
+  a:active .badge.@{name},
+  a:hover  .badge.@{name},
+  a:visited .badge.@{name}{
+    background-color: @bg-color;
+    color: @color;
+  }
+}

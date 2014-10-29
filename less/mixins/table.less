@@ -1,0 +1,53 @@
+
+.table-theme(@name, @bg-color,@color:@text-color){
+	@header-bg : @bg-color;
+	@header-color: @light;
+	@zebra-bg: lighten(@bg-color,40%);
+	@active-bg: lighten(@bg-color,30%);
+	@border-color: @color;
+	
+	table.@{name}
+	{
+		& > thead > tr > th {
+				background-color: @bg-color;
+				color: @light;
+		}
+		/*Estilo para la tabla 'zebra'*/
+		&.zebra > tbody > tr:nth-child(even) > td, & > tbody > tr:nth-child(even) > th{
+			background-color: @zebra-bg;
+			color: @color;
+		}
+		&.zebra.bordered{
+			border: 1px solid  @header-bg;
+		}
+		/*Estilo para la tabla 'hover'*/
+		&.hover > tbody > tr:hover > th,
+		&.hover > tbody > tr:hover > td,
+		& > tbody > tr.active > th,
+		& > tbody > tr.active > td,
+		& > tbody > tr > th.active,
+		& > tbody > tr > td.active{
+			background-color: @active-bg;
+			color: @color;
+		}
+		
+		/*Estilo para la tabla 'bordered'*/
+		&.bordered:not(.zebra){
+			& > thead > tr > th,
+			& > thead > tr > td,
+			& > tbody > tr > th,
+			& > tbody > tr > td{
+				border: 1px solid  @header-bg;
+			}
+		}
+	}
+	
+	table > tbody > tr.@{name} > th,
+	table > tbody > tr.@{name} > td,
+	table > tbody > tr > th.@{name},
+	table > tbody > tr > td.@{name}{
+		background-color: @active-bg;
+		color: @color;
+	}
+
+}

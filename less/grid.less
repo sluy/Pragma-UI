@@ -1,0 +1,52 @@
+/********************************************
+**SISTEMA DE REJILLAS
+*********************************************/
+.row{
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	.padding-horizontal(@grid-column-margin);
+	.clearfix();
+	&.cols,
+	& .row{
+		.padding-horizontal(0px);
+	}
+}
+/*Columnas XS*/
+.generate-columns(xs,@grid-columns);
+.generate-offset(xs,@grid-columns);
+.generate-push(xs,@grid-columns);
+.generate-pull(xs,@grid-columns);
+.row:not(.fluid){
+	max-width: @row-xs-width;
+}
+/*Columnas SM*/
+@media (min-width: @sm-min-width){
+	.row:not(.fluid){
+		max-width:  @row-sm-width;
+	}
+	.generate-columns(sm,@grid-columns);
+	.generate-offset(sm,@grid-columns);
+	.generate-push(sm,@grid-columns);
+	.generate-pull(sm,@grid-columns);
+}
+/*Columnas MD*/
+@media (min-width: @md-min-width){
+	.generate-columns(md,@grid-columns);
+	.generate-offset(md,@grid-columns);
+	.generate-push(md,@grid-columns);
+	.generate-pull(md,@grid-columns);
+	.row:not(.fluid){
+		max-width:  @row-md-width;
+	}
+}
+/*Columnas LG*/
+@media (min-width: @lg-min-width){
+	.generate-columns(md,@grid-columns);
+	.generate-offset(md,@grid-columns);
+	.generate-push(md,@grid-columns);
+	.generate-pull(md,@grid-columns);
+	.row:not(.fluid){
+		max-width:  @row-lg-width;
+	}
+}

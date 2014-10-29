@@ -1,0 +1,171 @@
+/**********************************************
+** LISTAS DESORDENADAS
+***********************************************/
+ul{
+	list-style-type: disc;
+	padding-left: 25px;
+	vertical-align: middle;
+	margin: 15px 0px;
+	/* Eliminamos el margen vertical a las listas anidadas*/
+	&  ul,
+	& ol{
+		margin:  0px 0px;
+	}
+	/* Formato de los items de la lista */
+	& > li{
+		margin: 0px;
+		line-height: 1.6;
+	}
+	/* Listas con marca de disco*/
+	&.disc,
+	&.disc ul:not(.square):not(.circle):not(.unstyled){
+		list-style-type: disc;
+	}
+	/* Listas con marca cuadrada*/
+	&.square,
+	&.square ul:not(.disc):not(.circle):not(.unstyled){
+		list-style-type: square;
+	}
+	/* Listas con marca circular*/
+	&.circle,
+	&.circle ul:not(.disc):not(.square):not(.unstyled){
+		list-style-type: circle;
+	}
+	/* Listas sin marca */
+	&.unstyled{
+		padding-left: 0;
+		list-style: none;
+		padding-left:0px;
+		/*Las listas anidadas*/
+		& ul:not(.square):not(.circle):not(.disc){
+			padding-left: 0;
+			list-style: none;
+			padding-left: 25px;
+		}
+	}
+	/* Listas en linea */
+	&.list-inline{
+		padding-left: 0;
+		list-style: none;
+		line-height: 0px;
+		& > li{
+			display: inline-block;
+			margin-right: floor(@grid-column-margin/2);
+			line-height: 1.6;
+			&:last-child{
+				margin-right: 0px;
+			}
+		}
+		/*Estilo 'collapse' para eliminar los margenes internos*/
+		&.collapse > li{
+			margin-right: 0px;
+		}
+	}
+}
+/**********************************************
+** LISTAS ORDENADAS
+***********************************************/
+ol{
+	list-style-type: decimal;
+	padding-left: 25px;
+	vertical-align: middle;
+	margin: 15px 0px;
+	/* Eliminamos el margen vertical a las listas anidadas*/
+	& ol,
+	& ul{
+		margin:  0px 0px;
+	}
+	/*******************
+	**Lista con números (por defecto)
+	*******************/
+	/*Sin cero(por defecto)*/
+	&,
+	&.decimal:not(.zero),
+	&:not(.zero) ol:not(.zero):not(.alpha):not(.roman),
+	&.decimal:not(.zero) ol:not(.zero):not(.alpha):not(.roman){
+		list-style-type: decimal;
+	}
+	/*Con cero*/
+	&.zero,
+	&.decimal.zero,
+	&.zero ol:not(.alpha):not(.roman),
+	&.decimal.zero ol:not(.alpha):not(.roman){
+		list-style-type: decimal-leading-zero;
+	}
+	/*******************
+	**Lista con letras
+	*******************/
+	/*Mayúsculas*/
+	&.alpha:not(.lower),
+	&.alpha:not(.lower) ol:not(.lower):not(.decimal):not(.roman){
+		list-style-type: upper-alpha;
+	}
+	/*Minúsculas*/
+	&.alpha.lower,
+	&.alpha.lower ol:not(.upper):not(.decimal):not(.roman){
+		list-style-type: lower-alpha;
+	}
+	/*******************
+	**Lista romana
+	*******************/
+	/*Mayúsculas*/
+	&.roman:not(.lower),
+	&.roman:not(.lower) ol:not(.lower):not(.decimal):not(.alpha){
+		list-style-type: upper-roman;
+	}
+	/*Minúsculas*/
+	&.roman.lower,
+	&.roman.lower ol:not(.upper):not(.decimal):not(.alpha){
+		list-style-type: lower-roman;
+	}
+	/* Formato de los items de la lista */
+	& > li{
+		margin: 0px;
+		line-height: 1.6;
+	}
+}
+
+/**********************************************
+** LISTAS DESCRIPTIVAS
+***********************************************/
+dl {
+  margin-top: 0;
+  margin-bottom: floor(@grid-column-margin/2);
+	
+	& > dt,
+	& > dd{
+		line-height: @line-height;
+	}
+	/*Termino*/
+	& > dt{
+		font-weight: bold;
+	}
+	/*Descripción*/
+	& > dd{
+		margin-left: 0px;
+	}
+	/*
+		Configuración para la lista descriptiva horizontal.
+		Sólo disponible para dispositivos sm+
+	*/
+	@media (min-width: @sm-min-width) {
+		&.horizontal{
+			& > dt{
+				float: left;
+				width: 160px;
+				overflow: hidden;
+				clear: left;
+				text-align: right;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			& > dd{
+				margin-left: 180px;
+				.clearfix();
+			}
+		}
+	}	
+}
+
+
+

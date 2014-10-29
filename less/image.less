@@ -1,0 +1,28 @@
+/**
+ * Controla que el tamaño de la imagen sea como máximo el ancho del control padre
+ */
+img.responsive{
+	display: inline-block;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+}
+
+/**
+ * Expande la imágen al ancho del control padre
+ * y es responsiva
+ */
+img.expand{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+img.circular, .circular > img{
+  .circular-borders();
+}
+
+img.rounded, .rounded > img{
+  .rounded-borders();
+}

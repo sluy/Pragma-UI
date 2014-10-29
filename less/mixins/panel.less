@@ -1,0 +1,34 @@
+.panel-theme(@name,@bg-color,@color:@light){
+	.panel.styled.@{name}{
+		border-color:darken(@bg-color,10%);
+		background-color:@bg-color;
+		color:@color;
+		& h1,
+		& h2,
+		& h3,
+		& h4,
+		& h5,
+		& h6{
+			color: @color;
+		}
+		& > .header,
+		& > .footer{
+			background-color: @bg-color;
+			color:@color;
+			border-top:none;
+			border-bottom:none;
+		}
+	}
+	.panel:not(.styled).@{name}
+	{
+		&,
+		& > .header,
+		& > .footer{
+			border-color: lighten(@bg-color,30%);
+		}
+		& > .header,
+		& > .footer{
+			color:@bg-color;
+		}
+	}
+}

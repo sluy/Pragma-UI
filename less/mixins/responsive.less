@@ -1,0 +1,21 @@
+.responsive(@force-width:false){
+  .show-inline-block();
+  & when(@force-width=true){
+    .size(auto,100%);
+  }
+  & when not(@force-width=true){
+    .size(auto,auto);
+    max-width: 100%;
+  }
+}
+
+.responsive-vertical(@force-height:false){
+  .show-inline-block();
+  & when(@force-height=true){
+    .size(100%,auto);
+  }
+  & when not(@force-height=true){
+    .size(auto,auto);
+    max-height: 100%;
+  }
+}

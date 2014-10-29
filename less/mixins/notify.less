@@ -1,0 +1,20 @@
+.notify-theme(@name,@bg-color,@color:@light){
+  .notify.@{name}{
+    background-color: @bg-color;
+    color:@color;
+    & h1,
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6{
+      color:@color;
+    }
+    & > a.close-notify{
+      &,
+      &:visited{
+        color:@color;
+      }
+    }
+  }
+}

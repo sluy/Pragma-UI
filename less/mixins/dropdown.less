@@ -1,0 +1,51 @@
+
+.dropdown-theme(@name, @bg-color, @border-color:darken(@bg-color,15%), @header-color: darken(@bg-color,15%),@font-color: @light){
+	.dropdown.@{name}
+	{
+		background-color: @bg-color;
+		border-color:@border-color;
+		& > li{
+			&.header{
+				color: @font-color;
+				background-color: @header-color;
+			}
+			&.divider{
+				border-bottom-color:lighten(@bg-color,6%);
+				background-color: darken(@bg-color,6%);
+			}
+			&.text{
+				color: lighten(@bg-color,50%);
+			}
+			/*Vínculos*/
+			& > a,
+			& > a:visited{
+					color: @font-color;
+			}
+			& > a:hover{
+				background-color: lighten(@bg-color,10%);
+			}
+			
+			/*Vínculo activo*/
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:visited{
+				color: @font-color;
+				background-color: transparent;
+			}
+			/*Vínculo deshabilitado*/
+			&.disabled > a,
+			&.disabled > a:hover,
+			&.disabled > a:visited
+			{
+				color: @font-color;
+				opacity: 0.4;
+				background: transparent;
+			}
+		}
+		&:not(ul){
+			color: lighten(@bg-color,80%);
+		}
+	}
+
+	
+}

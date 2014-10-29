@@ -1,0 +1,53 @@
+.offcanvas-theme(@name, @bg-color, @header-color: darken(@bg-color,15%),@font-color: @light){
+	
+	.offcanvas:not(.unstyled).@{name} > .offcanvas-wrapper > .offcanvas-left,
+	.offcanvas:not(.unstyled).@{name} > .offcanvas-wrapper > .offcanvas-right
+	{
+		background-color: @bg-color;
+		color: @font-color;
+		&.divider{
+			border-bottom-color:lighten(@bg-color,6%);
+			background-color: darken(@bg-color,6%);
+		}
+		& > section > ul > li{
+			&.header{
+				color: @font-color;
+				background-color: @header-color;
+			}
+			&.subheader{
+				color: @font-color;
+				background-color: lighten(@header-color,8%);
+			}
+			&.divider{
+				border-bottom-color:lighten(@bg-color,6%);
+				background-color: darken(@bg-color,6%);
+			}
+			
+			/*Vínculos*/
+			& > a,
+			& > a:visited{
+				color: @font-color;
+			}
+			& > a:hover{
+				background-color: lighten(@bg-color,10%);
+			}
+			/*Item activo*/
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:visited{
+				color: @font-color;
+				background-color: transparent;
+			}
+			/*Item deshabilitado*/
+			&.disabled > a,
+			&.disabled > a:hover,
+			&.disabled > a:visited
+			{	
+				color: @font-color;
+				opacity: 0.4;
+				background: transparent;
+			}
+			
+		}
+	}
+}

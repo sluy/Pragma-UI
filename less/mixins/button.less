@@ -1,0 +1,59 @@
+.button-theme(@name,@color,@bg-color){
+
+
+
+  .button-bar.@{name} > .button-group > .button,
+  .button-bar.@{name} > .button-group > .button:visited,
+  .button-group.@{name} > .button,
+  .button-group.@{name} > .button:visited,
+  .button.@{name},
+  .button:visited.@{name}{
+    color:@color;
+    background-color: @bg-color;
+    border-color: darken(@bg-color, 10%);
+    &:hover{
+      background-color: darken(@bg-color, 10%);
+      border-color: darken(@bg-color,20%);
+    }
+    &:focus,
+    &:active,
+    &.active{
+      cursor: default;
+      background-color: darken(@bg-color, 10%);
+      border-color: darken(@bg-color,20%);
+      .inner-shadow(0, 2px,5px, fade(darken(@bg-color,25%),100%));
+    }
+  }
+
+  .button-bar.@{name} > .button-group > .button,
+  .button-bar.@{name} > .button-group > .button:visited,
+  .button-group.@{name} > .button,
+  .button-group.@{name} > .button:visited{
+    border-left-color: darken(@bg-color, 10%);
+    border-right-color: lighten(@bg-color, 10%) 
+  }
+  .button-bar.@{name} > .button-group > .button:last-child,
+  .button-bar.@{name} > .button-group:visited > .button:visited:last-child,
+  .button-group.@{name} > .button:last-child,
+  .button-group:visited.@{name} > .button:visited:last-child{
+    border-right-color: darken(@bg-color, 10%);
+  }
+
+  .button-bar > .button-group.@{name}.gradient > .button,
+  .button-bar > .button-group.@{name}.gradient > .button:visited,
+  .button-group.@{name}.gradient > .button,
+  .button-group.@{name}.gradient > .button:visited,
+  .button.@{name}.gradient,
+  .button:visited.@{name}.gradient{
+    .gradient(@bg-color,darken(@bg-color, 10%),lighten(@bg-color, 5%));
+    &:hover{
+      .gradient(darken(@bg-color, 10%),darken(@bg-color, 20%),@bg-color);
+    }
+    &:focus,
+    &:active,
+    &.active{
+      .gradient(darken(@bg-color, 10%),darken(@bg-color, 20%),@bg-color);
+      .inner-shadow(0, 2px,5px, fade(darken(@bg-color,25%),100%));
+    }
+  }
+}

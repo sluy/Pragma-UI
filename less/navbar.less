@@ -1,0 +1,233 @@
+/*******************************************
+** BARRA DE NAVEGACIÓN
+********************************************/
+
+nav.navbar {
+	@color: lighten(@text-color, 20%);
+	z-index: @navbar-zindex;
+	width: 100%;
+	min-height: @navbar-height;
+	.padding-horizontal(@grid-column-margin);
+	.margin-vertical(@grid-column-margin);
+	vertical-align:middle;
+	line-height: floor(@navbar-height - 2);
+	color: @color;
+	background-color: @gray-lighter;
+	font-size:  @font-size-small;
+	.clearfix();
+
+	/*Barra con sombra*/
+	&.shadow{
+		.drop-shadow(0px,1px,3px,rgba(0,0,0,1));
+	}
+
+	/*Elimina el margen superior e inferior*/
+	&.collapse{
+		.margin-vertical(0px);
+	}
+	/*Barra flotante arriba*/
+	&.fixed-top{
+		position: fixed;
+		top: 0;
+	}
+	/*Barra flotante abajo*/
+	&.fixed-bottom{
+		position: fixed;
+		bottom: 0;
+	}
+	
+
+	
+	/*Contenido de la barra de navegación*/
+	&,
+	& > .row{
+		/*Secciones*/
+		& > section{
+			display: inline-block;
+			vertical-align:middle;
+
+
+			&:not(.divider)
+			{
+				padding-left:15px;
+			}
+			
+
+			&:first-child{
+				padding-left: 0px;
+			}
+
+			/*Area de la marca*/
+			&.brand{
+				/*Vínculo directo con texto*/
+				& > a,
+				& > a:visited{
+					color: @color;
+					font-size: @font-size-large;
+					&:hover{
+						color : @text-color;
+					}
+				}
+				/*En caso de ser un logo, lo hacemos responsivo*/
+				& img{
+					.responsive-vertical();
+					vertical-align: middle;
+				}
+			}
+			
+
+			/*Formularios*/
+			&.form{
+				.button{
+					margin-top: 6px;
+					&.xs
+					{
+						background-color: red;
+					}
+					&.sm
+					{
+						margin-top: 7px;
+					}
+					&.lg
+					{
+						margin-top: 3px;
+
+					}
+				}
+			}
+			
+			/*Listas: Menú principal*/
+			& > ul.nav{
+				display: inline-block;
+				margin: 0px 0px;
+				padding-left: 0;
+				list-style: none;
+				/*Ítems de la lista*/
+				& > li{
+					display: inline-block;
+					line-height: @navbar-height;
+					margin-left: -5px;
+					vertical-align:middle;
+					text-align:center;
+					&:first-child{
+						margin-left: 0px;
+					}
+
+					/*Vínculos*/
+					& > a,
+					& > a:visited{
+						display: block;
+						line-height: @navbar-height;
+						.padding-horizontal(@grid-column-margin);
+						color: @text-color;
+					}
+					/*Elementos activos y al pasar el mouse*/
+					& > a:hover,
+					&.active > a,
+					&.active > a:hover,
+					&.active > a:visited{
+						background-color: darken(@gray-lighter,7%);
+					}
+					/*Elementos deshabilitados*/
+					&.disabled > a,
+					&.disabled > a:hover,
+					&.disabled > a:visited{
+						color: @gray-light;
+						background-color: transparent;
+						cursor: not-allowed;
+					}
+				}
+			}
+			/*Líneas divisorias en la navegación y secciones*/
+			&.divider,
+			& > ul.nav > li.divider{
+				width: 2px;
+				height: @navbar-height;
+				border-left:1px solid lighten(@gray-lighter,6%);
+				background-color: darken(@gray-lighter,6%);
+			}
+			
+		}
+	}
+	/*Contenido del menú responsivo*/
+	& > .responsive-nav{
+		display: none;
+		height: auto;
+		width: 100%;
+		float: left;
+		.padding-vertical(@grid-column-margin);
+		/*Estilo al abrir el menú responsivo*/
+		&.open{
+			display: block;
+		}
+		
+		& > section,
+		& > .row > section{
+			&.left,
+			&.right{
+				float: none !important;
+			}
+			& > ul.nav{
+				display: block;
+				margin: 0px 0px;
+				padding-left: 0;
+				list-style: none;
+				& > li{
+					display: block;
+					
+					/*Vínculos*/
+					& > a,
+					& > a:visited{
+						display: block;
+						line-height: @navbar-height;
+						.padding-horizontal(@grid-column-margin);
+						color: @text-color;
+					}
+					/*Elementos activos y al pasar el mouse*/
+					& > a:hover,
+					&.active > a,
+					&.active > a:hover,
+					&.active > a:visited{
+						background-color: darken(@gray-lighter,7%);
+					}
+					/*Elementos deshabilitados*/
+					&.disabled > a,
+					&.disabled > a:hover,
+					&.disabled > a:visited{
+						color: @gray-light;
+						background-color: transparent;
+						cursor: not-allowed;
+					}
+				}
+			}
+			
+			& > ul.dropdown,
+			& > ul > li > ul.dropdown{
+				position:inherit;
+				box-shadow: none !important;
+				&.xs,
+				&.sm,
+				&.md,
+				&.lg{
+					width: 100%;
+				}
+			}
+			/*Divisiones*/
+			&.divider,
+			& > ul.nav > li.divider{
+				height: 2px;
+				border-top:1px solid lighten(@gray-lighter,6%);
+				background-color: darken(@gray-lighter,6%);
+			}
+		}
+	}
+}
+/*Creación de los temas de colores*/
+
+.navbar-theme(primary,@primary);
+.navbar-theme(secondary,@secondary);
+.navbar-theme(success,@success);
+.navbar-theme(tip,@tip,@light);
+.navbar-theme(warning,@warning);
+.navbar-theme(danger,@danger);
+.navbar-theme(inverse,@gray-darker,@light,@primary);

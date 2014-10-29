@@ -1,0 +1,36 @@
+.generate-columns(@device; @columns;@column-margin: @grid-column-margin) when (@columns > 0) {
+	.generate-columns(@device,(@columns - 1),@column-margin);    // next iteration
+	.@{device}-@{columns}{
+		position: relative;
+		float: left;
+		width: percentage(@columns/@grid-columns) !important;
+	}
+	.row.cols > .@{device}-@{columns},
+	.col.@{device}-@{columns}{
+		.padding(@column-margin);
+	}
+}
+.generate-offset(@device; @columns) when (@columns >= 0) {
+	.generate-offset(@device,(@columns - 1));    // next iteration
+	.@{device}-offset-@{columns}{
+		margin-left: percentage(@columns/@grid-columns) !important;
+	}
+}
+
+.generate-push(@device; @columns) when (@columns >= 0) {
+	.generate-push(@device,(@columns - 1));    // next iteration
+	.@{device}-push-@{columns}{
+		position: relative;
+		left: percentage(@columns/@grid-columns);
+		right: auto;
+	}
+}
+
+.generate-pull(@device; @columns) when (@columns >= 0) {
+	.generate-pull(@device,(@columns - 1));    // next iteration
+	.@{device}-pull-@{columns}{
+		position: relative;
+		right: percentage(@columns/@grid-columns);
+		left:auto;
+	}
+}

@@ -1,0 +1,310 @@
+.text(@type)when(@type=hidden) {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.text(@type)when(@type=no-wrap) {
+  white-space: nowrap;
+}
+.text(@type)when(@type=lower) {
+  text-transform: lowercase;
+}
+.text(@type)when(@type=upper) {
+  text-transform: uppercase;
+}
+.text(@type)when(@type=capitalize) {
+  text-transform: capitalize;
+}
+
+.text(@type)when(@type=muted) {
+  color: @gray-light; text-decoration: line-through;
+}
+
+.text-align(@type)when(@type=left){
+  text-align: left;
+}
+.text-align(@type)when(@type=center){
+  text-align: center;
+}
+.text-align(@type)when(@type=right){
+  text-align: right;
+}
+.text-align(@type)when(@type=justify){
+  text-align: justify;
+  &:after{
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
+}
+.generate-text(@type)when(@type = all){
+  .text-hidden {
+    .text(hidden);
+  }
+  .text-left {
+    .text-align(left);
+  }
+  .text-right {
+    .text-align(right);
+  }
+  .text-center {
+    .text-align(center);
+  }
+  .text-justify {
+    .text-align(justify);
+  }
+  .text-nowrap {
+    .text(no-wrap);
+  }
+  .text-lower {
+    .text(lower);
+  }
+  .text-upper {
+    .text(upper);
+  }
+  .text-capitalize {
+    .text(capitalize);
+  }
+  .text-muted {
+    .text(muted);
+  }
+}
+
+.generate-text(@type)when(@type = xs){
+  @media (max-width: @xs-max-width) {
+    .text-hidden-xs,
+    .text-hidden-sm-down,
+    .text-hidden-md-down{
+      .text(hidden);
+    }
+    .text-left-xs,
+    .text-left-sm-down,
+    .text-left-md-down {
+      .text-align(left);
+    }
+    .text-right-xs,
+    .text-right-sm-down,
+    .text-right-md-down {
+      .text-align(right);
+    }
+    .text-center-xs,
+    .text-center-sm-down,
+    .text-center-md-down {
+      .text-align(center);
+    }
+    .text-justify-xs,
+    .text-justify-sm-down,
+    .text-justify-md-down {
+      .text-align(justify);
+    }
+    .text-nowrap-xs,
+    .text-nowrap-sm-down,
+    .text-nowrap-md-down {
+      .text(no-wrap);
+    }
+    .text-lower-xs,
+    .text-lower-sm-down,
+    .text-lower-md-down {
+      .text(lower);
+    }
+    .text-upper-xs,
+    .text-upper-sm-down,
+    .text-upper-md-down {
+      .text(upper);
+    }
+    .text-capitalize-xs,
+    .text-capitalize-sm-down,
+    .text-capitalize-md-down {
+      .text(capitalize);
+    }
+    .text-muted-xs,
+    .text-muted-sm-down,
+    .text-muted-md-down {
+      .text(muted);
+    }  
+  }
+}
+.generate-text(@type)when(@type = sm){
+  @media (min-width: @sm-min-width) and (max-width: @sm-max-width) {
+    .text-hidden-sm,
+    .text-hidden-sm-up,
+    .text-hidden-sm-down,
+    .text-hidden-md-down{
+      .text(hidden);
+    }
+    .text-left-sm,
+    .text-left-sm-up,
+    .text-left-sm-down,
+    .text-left-md-down {
+      .text-align(left);
+    }
+    .text-right-sm,
+    .text-right-sm-up,
+    .text-right-sm-down,
+    .text-right-md-down {
+      .text-align(right);
+    }
+    .text-center-sm,
+    .text-center-sm-up,
+    .text-center-sm-down,
+    .text-center-md-down {
+      .text-align(center);
+    }
+    .text-justify-sm,
+    .text-justify-sm-up,
+    .text-justify-sm-down,
+    .text-justify-md-down {
+      .text-align(justify);
+    }
+    .text-nowrap-sm,
+    .text-nowrap-sm-up,
+    .text-nowrap-sm-down,
+    .text-nowrap-md-down {
+      .text(no-wrap);
+    }
+    .text-lower-sm,
+    .text-lower-sm-up,
+    .text-lower-sm-down,
+    .text-lower-md-down {
+      .text(lower);
+    }
+    .text-upper-sm,
+    .text-upper-sm-up,
+    .text-upper-sm-down,
+    .text-upper-md-down {
+      .text(upper);
+    }
+    .text-capitalize-sm,
+    .text-capitalize-sm-up,
+    .text-capitalize-sm-down,
+    .text-capitalize-md-down {
+      .text(capitalize);
+    }
+    .text-muted-sm,
+    .text-muted-sm-up,
+    .text-muted-sm-down,
+    .text-muted-md-down {
+      .text(muted);
+    }  
+  }
+}
+.generate-text(@type)when(@type = md){
+  @media (min-width: @md-min-width) and (max-width: @md-max-width) {
+    .text-hidden-md,
+    .text-hidden-md-up,
+    .text-hidden-md-down,
+    .text-hidden-sm-up{
+      .text(hidden);
+    }
+    .text-left-md,
+    .text-left-md-up,
+    .text-left-md-down,
+    .text-left-sm-up {
+      .text-align(left);
+    }
+    .text-right-md,
+    .text-right-md-up,
+    .text-right-md-down,
+    .text-right-sm-up {
+      .text-align(right);
+    }
+    .text-center-md,
+    .text-center-md-up,
+    .text-center-md-down,
+    .text-center-sm-up {
+      .text-align(center);
+    }
+    .text-justify-md,
+    .text-justify-md-up,
+    .text-justify-md-down,
+    .text-justify-sm-up {
+      .text-align(justify);
+    }
+    .text-nowrap-md,
+    .text-nowrap-md-up,
+    .text-nowrap-md-down,
+    .text-nowrap-sm-up {
+      .text(no-wrap);
+    }
+    .text-lower-md,
+    .text-lower-md-up,
+    .text-lower-md-down,
+    .text-lower-sm-up {
+      .text(lower);
+    }
+    .text-upper-md,
+    .text-upper-md-up,
+    .text-upper-md-down,
+    .text-upper-sm-up {
+      .text(upper);
+    }
+    .text-capitalize-md,
+    .text-capitalize-md-up,
+    .text-capitalize-md-down,
+    .text-capitalize-sm-up {
+      .text(capitalize);
+    }
+    .text-muted-md,
+    .text-muted-md-up,
+    .text-muted-md-down,
+    .text-muted-sm-up {
+      .text(muted);
+    }  
+  }
+}
+.generate-text(@type)when(@type = lg){
+  @media (min-width: @lg-min-width) {
+    .text-hidden-lg,
+    .text-hidden-sm-up,
+    .text-hidden-md-up{
+      .text(hidden);
+    }
+    .text-left-lg,
+    .text-left-sm-up,
+    .text-left-md-up {
+      .text-align(left);
+    }
+    .text-right-lg,
+    .text-right-sm-up,
+    .text-right-md-up {
+      .text-align(right);
+    }
+    .text-center-lg,
+    .text-center-sm-up,
+    .text-center-md-up {
+      .text-align(center);
+    }
+    .text-justify-lg,
+    .text-justify-sm-up,
+    .text-justify-md-up {
+      .text-align(justify);
+    }
+    .text-nowrap-lg,
+    .text-nowrap-sm-up,
+    .text-nowrap-md-up {
+      .text(no-wrap);
+    }
+    .text-lower-lg,
+    .text-lower-sm-up,
+    .text-lower-md-up {
+      .text(lower);
+    }
+    .text-upper-lg,
+    .text-upper-sm-up,
+    .text-upper-md-up {
+      .text(upper);
+    }
+    .text-capitalize-lg,
+    .text-capitalize-sm-up,
+    .text-capitalize-md-up {
+      .text(capitalize);
+    }
+    .text-muted-lg,
+    .text-muted-sm-up,
+    .text-muted-md-up {
+      .text(muted);
+    }  
+  }  
+}

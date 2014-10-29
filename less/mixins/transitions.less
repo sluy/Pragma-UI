@@ -1,0 +1,25 @@
+.bg-transition(@time: 300ms){
+  -webkit-transition: background-color @time linear;
+  -moz-transition: background-color @time linear;
+  -o-transition: background-color @time linear;
+  -ms-transition: background-color @time linear;
+  transition: background-color @time linear;
+}
+.color-transition(@time:300ms){
+  -webkit-transition: color @time linear;
+  -moz-transition: color @time linear;
+  -o-transition: color @time linear;
+  -ms-transition: color @time linear;
+  transition: color @time linear;  
+}
+.transition(@property:all, @time:300ms,@type:linear){
+  -webkit-transition: @property @time @type;
+  -moz-transition: @property @time @type;
+  -o-transition: @property @time @type;
+  -ms-transition: @property @time @type;
+  transition: @property @time @type;
+}
+.antialiased(){
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

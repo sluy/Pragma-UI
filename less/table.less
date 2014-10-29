@@ -1,0 +1,74 @@
+/*ESTILOS PARA TABLAS*/
+table {
+	/*Estilo general*/
+  max-width: 100%;
+	width: 100%;
+  margin-top: @table-margin-vertical/2;
+	margin-bottom: @table-margin-vertical/2;
+  background: @table-bg;
+	/*Estilo de la cabecera*/
+	& > thead > tr > th {
+		background-color: @table-head-bg;
+		color: @table-head-color;
+		font-weight: @table-head-font-weight;
+		text-align: left;
+		vertical-align: bottom;
+	}
+	/*Estilo para todos los elementos de la tabla*/
+	& > thead > tr > th,
+	& > thead > tr > td,
+	& > tbody > tr > th,
+	& > tbody > tr > td{
+		padding: floor(@table-cell-padding/2) @table-cell-padding;
+	}
+	
+	& > tbody > tr > th,
+	& > tbody > tr > td{
+		vertical-align: top;
+	}
+	
+	/*Estilo para la tabla 'zebra'*/
+	&.zebra{
+		/*General*/
+		& > tbody > tr:nth-child(even) > td,
+		& > tbody > tr:nth-child(even) > th {
+			background-color: @table-zebra-bg;
+			color: @table-zebra-color;
+		}
+		/*Estilo para cuanto es zebra+bordered*/
+		&.bordered{
+			border-spacing: @table-zebra-cell-spacing;
+			border-collapse: separate;
+			border: 1px solid  @table-bordered-border-color;
+		}
+	}
+	/*Estilo para la tabla 'bordered'*/
+	&.bordered:not(.zebra){
+		& > thead > tr > th,
+		& > thead > tr > td,
+		& > tbody > tr > th,
+		& > tbody > tr > td{
+			border: 1px solid  @table-bordered-border-color;
+		}
+	}
+	/*Estilo para la tabla 'hover'*/
+	&.hover > tbody > tr:hover > th,
+	&.hover > tbody > tr:hover > td,
+	& > tbody > tr.active > th,
+	& > tbody > tr.active > td,
+	& > tbody > tr > th.active,
+	& > tbody > tr > td.active{
+		background-color: @table-row-active-bg;
+		color: @table-row-active-color;
+	}
+}
+
+
+.table-theme(inverse,@gray-darker,@light);
+.table-theme(primary,@primary);
+.table-theme(secondary,@secondary);
+.table-theme(success,@success);
+.table-theme(tip,@tip);
+.table-theme(warning,@warning);
+.table-theme(danger,@danger);
+

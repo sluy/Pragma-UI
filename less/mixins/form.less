@@ -1,0 +1,96 @@
+.placeholder(@color){
+  &::-webkit-input-placeholder {
+    color:    @color;
+  }
+  &:-moz-placeholder {
+    color:    @color;
+    opacity:  1;
+  }
+  &::-moz-placeholder {
+    color:    @color;
+    opacity:  1;
+  }
+  &:-ms-input-placeholder {
+    color:    @color;
+  }
+}
+
+
+.input-text(@rules) {
+  input[type="date"],
+  input[type="datetime"], 
+  input[type="datetime-local"], 
+  input[type="email"], 
+  input[type="hidden"],
+  input[type="month"], 
+  input[type="number"], 
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"], 
+  input[type="url"],
+  input[type="week"],
+  select,
+  textarea{
+    @rules();
+  }
+}
+
+.input-theme(@name,@color,@border-color,@focus-bg-color: inherit){
+  .input-text({
+    .@{name} &,
+    &.@{name}{
+      color: @color;
+      border-color: @border-color;
+      .placeholder(@border-color);
+      &:focus{
+        background-color: @focus-bg-color;
+        .drop-shadow(0, 0,3px, fade(@border-color,70%));
+      }
+    }
+  });
+  form .@{name} label:not(.prefix):not(.postfix),
+  form .@{name} label.horizontal,
+  form .@{name},
+  form  .has-icon.@{name} .input-icon,
+  form  .@{name} .has-icon .input-icon,
+  form  .@{name} .input-icon{
+    color:@color;
+  }
+
+  form .@{name} .help,
+  form .help.@{name}
+  {
+    font-size: @font-size-small;
+    color: @color;
+  }
+}
+
+.form-control-size(@size)
+{
+  & when (@size = xs)
+  {
+    .padding(@control-xs-padding);
+    font-size: @control-xs-font-size;
+    line-height: @control-xs-line-height;
+  }
+  & when (@size = sm)
+  {
+    .padding(@control-sm-padding);
+    font-size: @control-sm-font-size;
+    line-height: @control-sm-line-height;
+  }
+  & when(@size = md)
+  {
+    .padding(@control-padding);
+    font-size: @control-font-size;
+    line-height: @control-line-height;
+  }
+  & when (@size = lg)
+  {
+    .padding(@control-lg-padding);
+    font-size: @control-lg-font-size;
+    line-height: @control-lg-line-height;
+  }
+}

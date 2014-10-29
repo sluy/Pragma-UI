@@ -1,0 +1,89 @@
+/****************************************
+**MENÚ DESPLEGABLE
+*****************************************/
+.dropdown{
+  position: absolute;
+	z-index: @dropdown-zindex;
+	display: none;
+	.square-size(auto);
+	.list-unstyled();
+	color: @text-color;
+	background-color: @body-bg;
+	.drop-shadow();
+	
+	/*Ítems*/
+	& > li{
+		display: block;
+		text-align: left;
+		.size(auto,100%);
+		//Encabezados
+		&.header{
+			padding:  5px floor(@grid-column-margin/2);
+			background-color: @gray-darker;
+			color: @light;
+		}
+		//Texto
+		&.text{
+			color: @gray-light;
+			padding:  5px floor(@grid-column-margin/2);
+		}
+		//Vínculos
+		&:not(.text) > a,
+		&:not(.text) > a:visited{
+			display: block;
+			color: @text-color;
+			padding:  5px floor(@grid-column-margin/2);
+		}
+		
+		&.divider{
+			.size(2px,100%);
+			margin:0px 0px;
+			border-bottom:1px solid lighten(@gray-lighter,6%);
+			background-color: darken(@gray-lighter,6%);
+		}
+		
+		&:not(.text) > a:hover{
+			background-color: @gray-lighter;
+		}
+		//Vínculo activo
+		&:not(.text).active > a,
+		&:not(.text).active > a:hover,
+		&:not(.text).active > a:visited{
+			font-weight: @font-weight-bold;
+			background-color: transparent;
+		}
+		//Vínculo deshabilitado
+		&:not(.text).disabled > a,
+		&:not(.text).disabled > a:hover,
+		&:not(.text).disabled > a:visited{
+			color: darken(@gray-lighter,10%);
+			background-color: transparent;
+		}
+	}
+	&.open{
+		display: block;
+	}
+	&.xs{
+		width: 200px;
+	}
+	&.sm{
+		width: 300px;
+	}
+	&.md{
+		width: 500px;
+	}
+	&.lg{
+		width: 800px;
+	}
+	&:not(ul){
+		padding:   floor(@grid-column-margin/2) floor(@grid-column-margin/2);
+	}
+}
+
+.dropdown-theme(inverse,@gray-darker);
+.dropdown-theme(primary,@primary);
+.dropdown-theme(secondary,@secondary);
+.dropdown-theme(success,@success);
+.dropdown-theme(tip,@tip);
+.dropdown-theme(warning,@warning);
+.dropdown-theme(danger,@danger);

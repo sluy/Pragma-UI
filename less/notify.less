@@ -1,0 +1,78 @@
+/******************************
+  VENTANAS MODALES
+*******************************/
+.notify{
+  display: none;
+  position: fixed;
+  z-index: @notify-zindex;
+  .padding(@grid-column-margin);
+  background-color: @gray-lighter;
+  font-size: @font-size-small;
+  max-width: 50%;
+  .drop-shadow(0px,0px,4px,fade(@dark, 30%));
+  //Al pasar el mouse sobre la notificación.
+  &:hover{
+    .drop-shadow(0px,0px,4px,fade(@dark, 50%));
+  }
+  //Boton de cierre de la notificación
+  & > a.notify-close{
+    &,
+    &:visited{
+      .position(right);
+      margin-right: -(@grid-column-margin/2)+2;
+      margin-top: -(@grid-column-margin/2)-4;
+      color:@gray-darker;
+      .opacity(0.8);
+    }
+    &:hover{
+      .opacity(1);
+    }
+  }
+  //Tamaños
+  &.xs
+  {
+    max-width: 30%;
+  }
+  
+  &.sm
+  {
+    max-width: 40%;
+  }
+  
+  &.lg
+  {
+    max-width: 70%;
+  }
+
+  @media (max-width: @sm-min-width){
+    &,
+    &.xs,
+    &.sm,
+    &.lg
+    {
+      max-width: 70%;
+    }
+
+  }
+
+  //Bordes
+  &.rounded{
+    .rounded-borders();
+  }
+  &.circular{
+    .circular-borders();
+    & > a.close-notify{
+      &,&:visited{
+        margin-right: 0px;
+      }
+    }
+  }
+}
+//Temas visuales
+.notify-theme(primary,@primary);
+.notify-theme(secondary,@secondary);
+.notify-theme(success,@success);
+.notify-theme(tip,@tip);
+.notify-theme(warning,@warning);
+.notify-theme(danger,@danger);
+.notify-theme(inverse,@gray-darker);

@@ -1,0 +1,176 @@
+/**********************
+ * PAGINACIÓN
+ *********************/
+ ul.pagination{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	//A la derecha
+	&.right{
+		text-align: right;
+		float: none !important;
+	}
+	//Centrada
+	&.center{
+		text-align: center;
+	}
+	//A la izquierda
+	&.left{
+		text-align: left;
+		float: none !important;
+	}
+	font-size: 0px; //eliminando el bug inline-block + white-space
+	//Elementos de la paginación
+	& > li{
+		display:inline-block;
+		font-size: @control-font-size; //eliminando el bug inline-block + white-space
+		border:1px solid darken(@gray-lighter,10%);
+		border-right-color: @gray-lighter;
+		text-align: center;
+		width: auto;
+		height: @control-height;
+		line-height: (@control-height - 2);
+		min-width: @control-height;
+		background: transparent;
+		.transition(all,0.3s);
+		//eliminando el margen del primer elemento
+		&:first-child{
+			margin-left: 0px;
+		}
+		//efecto al pasar el mouse
+		&:hover{
+			background: @gray-lighter;      
+		}
+		//links
+		& > a,
+		& > a:visited{
+			display: block;
+			width: 100%;
+			height: 100%;
+			color: @gray;
+		}
+		//links deshabilitados
+		&.disabled >a,
+		&.disabled >a:hover,
+		&.disabled >a:visited{
+			background: transparent;
+			cursor: default;
+			color:darken(@gray-lighter,10%);
+		}
+		//links activos
+		&.active,
+		&.active:hover{
+			background: @primary;
+			border-color: @primary-dark;
+
+			& > a,
+			& > a:visited,
+			& > a:hover{
+				color:@light;
+				cursor: default;        
+			}      
+		}
+		&:last-child:not(.active){
+			border-right-color: darken(@gray-lighter,10%); 
+		}
+	}
+	//Tamaño xs
+	&.xs > li{
+		font-size: @control-xs-font-size;
+		height: @control-xs-height;
+		line-height: (@control-xs-height - 2);
+		min-width: @control-xs-height;
+	}
+	//Tamaño sm
+	&.sm > li{
+		font-size: @control-sm-font-size;
+		height: @control-sm-height;
+		line-height: (@control-sm-height - 2);
+		min-width: @control-sm-height;
+	}
+	//Tamaño lg
+	&.lg > li{
+		font-size: @control-lg-font-size;
+		height: @control-lg-height;
+		line-height: (@control-lg-height - 2);
+		min-width: @control-lg-height;
+	}
+
+	//Bordes redondeados
+	&.rounded{
+		.rounded-left-borders();
+		& > li:first-child{
+			.rounded-left-borders();
+		}
+		& > li:last-child{
+			.rounded-right-borders();
+		}
+	}
+	//Bordes circulares
+	&.circular{
+		.circular-left-borders();
+		& > li:first-child{
+			.circular-left-borders();
+		}
+		& > li:last-child{
+			.circular-right-borders();
+		}
+	}
+	//Estilo "bullets"
+	&.bullets{
+		& > li{
+			&:not(.active){
+		border-right-color: darken(@gray-lighter,10%);
+			}
+			.circular-borders();
+			margin-right: 3px;
+			&:last-child{
+				margin-right: 0px;
+			}
+		}
+	}
+	//Paginación vertical
+	&.vertical
+	{
+		display: inline-block;
+		width: auto;
+		//ítems
+		& > li{
+			display: block;
+			width: @control-height;
+			border-right-color: darken(@gray-lighter,10%);
+			border-bottom-color: @gray-lighter;
+		}
+		//Tamaño xs
+		&.xs > li{
+			width: @control-xs-height;
+		}
+		//Tamaño sm
+		&.sm > li{
+			width: @control-sm-height;
+		}
+		//Tamaño lg
+		&.lg > li{
+			width: @control-lg-height;
+		}
+		//Estilo "bullets"
+		&.bullets > li
+		{
+			margin-bottom: 3px;
+			margin-right: 0px;
+			&:last-child
+			{
+				margin-bottom: 0px;
+			}
+		}
+		& > li:last-child:not(.active),
+		&.bullets >li:not(.active){
+			border-bottom-color: darken(@gray-lighter,10%); 
+		}
+	}
+}
+
+
+
+
+

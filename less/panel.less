@@ -1,0 +1,83 @@
+/*****************************************
+ * PANELES
+ *****************************************/
+.panel{
+	display: block;
+	font-size: @font-size;
+	border: 1px solid @gray-light;
+	background-color: @light;
+	padding: floor(floor(@grid-column-margin/2)/2) floor(@grid-column-margin/2) ;
+	.clearfix();
+	//Encabezado
+	& > .header{
+		padding: floor(floor(@grid-column-margin/2)/2) 0px ;
+		border-bottom: 1px dotted @gray-light;
+		.clearfix();
+	}
+	//Cuando el footer sigue al header eliminamos el borde
+	& > .header + &.footer{
+		border-bottom: none;
+	}
+	//Pié de página.
+	& > .footer{
+		padding: floor(floor(@grid-column-margin/2)/2) 0px ;
+		border-top: 1px dotted @gray-light;
+		.clearfix();
+	}
+	//Area de contenido del panel.
+	& > .body{
+		padding: floor(floor(@grid-column-margin/2)/2) 0px ;
+		color: @gray;
+		.clearfix();
+	}
+	//Panel con sombra.
+	&.shadow{
+		.drop-shadow(0px,0px,2px,rgba(0,0,0,0.3));
+	}
+
+	&.rounded
+	{
+		.rounded-borders();
+		& > *:first-child
+		{
+			.rounded-top-borders();
+		}
+		& > *:last-child
+		{
+			.rounded-bottom-borders();
+		}
+	}
+	//Panel "styled"
+	&.styled {
+		padding: 0px 0px;
+		& > .header,
+		& > .body,
+		& > .footer
+		{
+			padding: floor(@grid-column-margin*0.25) floor(@grid-column-margin*0.5);;
+		}
+		& > .header{
+			background-color: @gray-lighter;
+			border-bottom:1px solid @gray-light;
+		}
+		//Cuando el footer sigue al header eliminamos el borde
+		& > .header + &.footer{
+			border-bottom: none;
+		}
+		& > .body{
+			background-color:@light;
+		}
+		& > .footer{
+			background-color: @gray-lighter;
+			border-top:1px solid @gray-light;
+		}
+	}
+}
+//Temas visuales.
+.panel-theme(primary,@primary);
+.panel-theme(secondary,@secondary);
+.panel-theme(success,@success);
+.panel-theme(tip,@tip);
+.panel-theme(warning,@warning);
+.panel-theme(danger,@danger);
+.panel-theme(inverse,@gray-darker);

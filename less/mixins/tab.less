@@ -1,0 +1,17 @@
+.tab-theme(@name,@color){
+  .tabs.@{name} > ul.nav > li,
+  .tabs > ul.nav >li.@{name}{
+    &:not(.disabled):not(.active) > a:hover{
+      color: lighten(@color, 10%);
+      border-bottom-color: lighten(@color, 10%);
+    }
+    &.active{
+      & > a,
+      & > a:hover,
+      & > a:visited{
+        color: @color;
+        border-bottom-color: @color;
+      }
+    } 
+  }
+}

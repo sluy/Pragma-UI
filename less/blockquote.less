@@ -1,0 +1,27 @@
+blockquote {
+  margin: 20px 20px;
+  padding: 10px 10px;
+  border-left: 3px solid @gray-light; }
+  blockquote cite {
+    display: block;
+    font-size: 75%;
+    color: @gray-light; }
+    blockquote cite:before {
+      content: "\2014 \0020"; }
+    blockquote cite a, blockquote cite a:visited {
+      color: @gray-lighter; }
+
+blockquote, blockquote p {
+  color: @gray; }
+
+blockquote.reverse{
+  text-align: right;
+  border-right:3px solid  @gray-light;
+  border-left: none;
+}
+  blockquote.reverse cite:before{
+    content : "";
+  }
+  blockquote.reverse cite:after{
+    content : "\2014 \0020";
+  }

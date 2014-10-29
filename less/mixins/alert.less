@@ -1,0 +1,28 @@
+.alert-theme(@name,@color,@bg-color:lighten(@color, 40%),@border-color:darken(@bg-color, 15%)){
+  .alert.@{name}{
+    color: fade(@color,80%);
+    background-color: @bg-color;
+    border-color: @border-color;
+
+    &  a,
+    &  a:visited,
+    &  h1,
+    &  h2,
+    &  h3,
+    &  h4,
+    &  h5,
+    &  h6
+    {
+      color: @color;
+    }
+
+    & > a.close_button{
+      &,
+      &:visited,
+      &:hover{
+        color:@color;
+      }
+    }
+  }
+
+}

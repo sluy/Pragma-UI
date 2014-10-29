@@ -1,0 +1,31 @@
+.price-table-theme(@name, @bg-color,@color:@light){
+	@title-bg : darken(@bg-color,20%);
+	@price-bg: lighten(@bg-color,15%);
+	
+	ul.price-table.@{name}
+	{
+		background-color: @bg-color;
+		color: @light;
+		border-color:@price-bg;
+		/*Titulo*/
+		& > li.title{
+			background-color: @title-bg;
+		}
+		/*precio*/
+		& > li.price{
+			background-color: @price-bg;
+		}
+		/*Bordes de las características y el area de botones*/
+		& > li.feature,
+		& > li.button-area{
+			border-top-color: @price-bg;
+		}
+	}
+	/*Estilo de la estrella de destacado*/
+	ul.price-table > li.featured.@{name} > .star{
+		background: @bg-color;
+		&:before,&:after{
+			background: @bg-color;
+		}
+	}
+}

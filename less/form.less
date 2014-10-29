@@ -1,0 +1,236 @@
+input[type="date"],
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="email"], 
+input[type="hidden"],
+input[type="month"], 
+input[type="number"], 
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"], 
+input[type="url"],
+input[type="week"],
+select,
+textarea{
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+  border: 1px solid @gray-light;
+  color: @gray;
+  .placeholder(@gray-light);
+  .drop-shadow(0, 0,3px, fade(@gray,10%));
+  .form-control-size(md);
+  &:focus,
+  &.focus,
+  &.active{
+    .drop-shadow(0, 0,3px, fade(@gray,50%));
+  }
+  .rounded &,
+  &.rounded{
+    .rounded-borders();
+  }
+  .circular &,
+  &.circular{
+    .circular-borders();
+  }
+
+  .xs &,
+  &.xs{
+    .form-control-size(xs);
+  }
+  .sm &,
+  &.sm{
+    .form-control-size(sm);
+  }
+  .lg &,
+  &.lg{
+    .form-control-size(lg);
+  }
+  
+};
+form
+{
+  position: relative;
+
+  .sending
+  {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    display: block;
+    background-color: fade(@light,80%);
+    color:@primary;
+    text-align: center;
+    .padding(@grid-column-margin);
+  }
+
+  /**Filas**/
+  .row
+  {
+    .padding-vertical(@grid-column-margin);
+    &.collapse
+    {
+      .padding-vertical(0px);
+    }
+  }
+  /**Elementos deshabilitados**/
+  & .disabled,
+  & [disabled],
+  & .disabled *,
+  & [disabled] *
+  {
+    cursor: not-allowed;
+  }
+  /**Label**/
+  label{
+    display: block;
+    .form-control-size(md);
+    border:1px solid transparent;
+    &.prefix,
+    &.postfix
+    {
+      text-align: center;
+      background-color: @gray-lighter;
+      border-color: @gray-light;
+    }
+    //Centrado vertical de checkbox/radio
+    & > input[type='checkbox'],
+    & > input[type='radio']{
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      padding: 0;
+      margin:0;
+    }
+    &.disabled
+    {
+      color:@gray-light;
+    }
+  }
+  & .xs label,
+  label.xs
+  {
+    .form-control-size(xs)
+  }
+  & .sm label,
+  label.sm
+  {
+    .form-control-size(sm)
+  }
+  & .lg label,
+  label.lg
+  {
+    .form-control-size(lg)
+  }
+
+  /**Control estático**/
+  & .static-control
+  {
+    display: block;
+    .form-control-size(md);
+    width: 100%;
+  }
+
+  & .xs .static-control,
+  & .static-control.xs
+  {
+    .form-control-size(xs);
+  }
+  & .sm .static-control,
+  & .static-control.sm
+  {
+    .form-control-size(sm);
+  }
+  & .lg .static-control,
+  & .static-control.lg
+  {
+    .form-control-size(lg);
+  }
+  /**Ayuda del control**/
+  .help
+  {
+    display: block;
+    font-style: italic;
+    .padding-horizontal(@grid-column-margin*0.5);
+
+    & > :first-child
+    {
+      padding-top:floor((@grid-column-margin*0.5)*0.5);
+    }
+    & > :last-child
+    {
+      padding-bottom:floor((@grid-column-margin*0.5)*0.5);
+    }
+  }
+  /**Prefijos**/
+  & .prefix
+  {
+    border-right: none;
+  }
+  //Bordes redondeados
+  & .rounded .prefix,
+  & .prefix.rounded
+  {
+    .rounded-left-borders();
+    .linear-right-borders();
+  }
+  //Bordes circulares
+  & .circular .prefix,
+  & .prefix.circular
+  { 
+    .circular-left-borders();
+    .linear-right-borders();
+  }
+
+  /**Susfijos**/
+  & .postfix
+  {
+    border-left: none;
+  }
+  & .prefix + .postfix
+  {
+    border-left: 1px solid inherit;
+  }
+  //Bordes redondeados
+  & .rounded .postfix,
+  & .postfix.rounded
+  {
+    .rounded-right-borders();
+    .linear-left-borders();
+  }
+  //Bordes circulares
+  & .circular .postfix,
+  & .postfix.circular
+  { 
+    .circular-right-borders();
+    .linear-left-borders();
+  }
+  
+
+
+  
+
+
+
+
+  & .rounded .linear,
+  & .circular .linear
+  {
+    .linear-left-borders();
+    .linear-right-borders();
+  }
+}
+
+
+
+.input-theme(primary,@primary,@primary-lighter, fade(@primary-lighter,5%));
+.input-theme(secondary,@secondary,@secondary-lighter, fade(@secondary-lighter,5%));
+.input-theme(success,@success,@success-lighter, fade(@success-lighter,5%));
+.input-theme(tip,@tip,@tip-lighter, fade(@tip-lighter,5%));
+.input-theme(warning,@warning,@warning-lighter, fade(@warning-lighter,5%));
+.input-theme(danger,@danger,@danger-lighter, fade(@danger-lighter,5%));

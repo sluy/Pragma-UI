@@ -1,0 +1,43 @@
+/****************************************
+**MINIATURAS
+*****************************************/
+.thumbnail{
+  display:block;
+  width:100%;
+  min-width:40px;
+  height:auto;
+  border: 1px solid fade(@gray,30%);
+  .padding(@grid-column-margin/2);
+
+  //Al pasar el mouse
+  //El color es 30% más suave del primario para una visualización más elegante
+  &:hover
+  {
+    border-color: fade(@primary,30%);
+  }
+  //Bordes circulares
+  &.circular
+  {
+    .circular-borders();
+  }
+  //Bordes redondeados
+  &.rounded
+  {
+    .rounded-borders();
+  }
+  //Imagen
+  & > img
+  {
+    display: block;
+    width:100%;
+    height:auto;
+  }
+  //Miniatura con contenido
+  & > .content
+  {
+    display: block;
+    width: 100%;
+    height: auto;
+    .padding(@grid-column-margin * 0.5);
+  }
+}

@@ -1,0 +1,106 @@
+.position(@align)when(@align=left){
+  float: left !important;
+}
+.position(@align)when(@align=right){
+  float: right !important;
+}
+.position(@align)when(@align=center){
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  float: none; 
+}
+.generate-position(@device)when(@device = all){
+  .left{
+    .position(left);
+  }
+  .right{
+    .position(right);
+  }
+  .center{
+    .position(center);
+  }
+}
+.generate-position(@device)when(@device = xs){
+  @media (max-width: @xs-max-width) {
+    .left-xs,
+    .left-sm-down,
+    .left-md-down{
+      .position(left);
+    }
+    .right-xs,
+    .right-sm-down,
+    .right-md-down{
+      .position(right);
+    }
+    .center-xs,
+    .center-sm-down,
+    .center-md-down{
+      .position(center);
+    }    
+  }
+}
+.generate-position(@device)when(@device = sm){
+  @media (min-width: @sm-min-width) and (max-width: @sm-max-width) {
+    .left-sm,
+    .left-sm-up,
+    .left-sm-down,
+    .left-md-down{
+      .position(left);
+    }
+    .right-sm,
+    .right-sm-up,
+    .right-sm-down,
+    .right-md-down{
+      .position(right);
+    }
+    .center-sm,
+    .center-sm-up,
+    .center-sm-down,
+    .center-md-down{
+      .position(center);
+    }      
+  }
+}
+.generate-position(@device)when(@device = md){
+  @media (min-width: @md-min-width) and (max-width: @md-max-width) {
+    .left-md,
+    .left-md-up,
+    .left-md-down,
+    .left-sm-up{
+      .position(left);
+    }
+    .right-md,
+    .right-md-up,
+    .right-md-down,
+    .right-sm-up{
+      .position(right);
+    }
+    .center-md,
+    .center-md-up,
+    .center-md-down,
+    .center-sm-up{
+      .position(center);
+    }  
+
+  }
+}
+.generate-position(@device)when(@device = lg){
+  @media (min-width: @lg-min-width) {
+    .left-lg,
+    .left-sm-up,
+    .left-md-up{
+      .position(left);
+    }
+    .right-lg,
+    .right-sm-up,
+    .right-md-up{
+      .position(right);
+    }
+    .center-lg,
+    .center-sm-up,
+    .center-md-up{
+      .position(center);
+    }    
+  }
+}

@@ -1,0 +1,80 @@
+.switch {
+  .size(@control-height,@control-height*2);
+  background: @gray-lighter;
+  border: 1px solid @gray-light;
+  position: relative;
+  & input[type='checkbox']{
+    .hide();
+    &:checked + label{
+      left: @control-height;
+      background: @primary;      
+    }
+  }
+  & label{
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    left: 5px;
+    .show-block();
+    .square-size(@control-height - 10);
+    background: @gray-light;
+    cursor: pointer;
+    .transition(all,0.3s,ease);
+  }
+}
+
+
+.input-group.xs .switch,
+.switch.xs{
+  .size(@control-xs-height,@control-xs-height*2);
+  & label{
+    .square-size(@control-xs-height - 10);
+  }
+  & input[type=checkbox]:checked + label{
+    left: @control-xs-height;
+  }
+}
+
+.input-group.sm .switch,
+.switch.sm{
+  .size(@control-sm-height,@control-sm-height*2);
+  & label{
+    .square-size(@control-sm-height - 10);
+  }
+  & input[type=checkbox]:checked + label{
+    left: @control-sm-height;
+  }
+}
+.input-group.lg .switch,
+.switch.lg{
+  .size(@control-lg-height,@control-lg-height*2);
+  & label{
+    .square-size(@control-lg-height - 10);
+  }
+  & input[type=checkbox]:checked + label{
+    left: @control-lg-height;
+  }
+}
+
+.input-group.rounded .switch,
+.switch.rounded{
+  .rounded-borders();
+  & label{
+    .rounded-borders();
+  }
+}
+.input-group.circular .switch,
+.switch.circular{
+  .circular-borders();
+  & label{
+    .circular-borders();
+  }
+}
+
+
+.switch-theme(primary,@primary);
+.switch-theme(secondary,@secondary);
+.switch-theme(success,@success);
+.switch-theme(tip,@tip);
+.switch-theme(warning,@warning);
+.switch-theme(danger,@danger);

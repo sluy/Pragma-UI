@@ -1,0 +1,109 @@
+/******************************
+  TOOLTIPS
+*******************************/
+.tooltip{
+  position: absolute;
+  display: none;
+  z-index: @tooltip-zindex;
+	background: @gray-lighter;
+	.padding-horizontal(@grid-column-margin);
+	.padding-vertical(@grid-column-margin/2);
+	border:1px solid @gray-light;
+	.drop-shadow(0px,0px,5px,rgba(0,0,0,0.3));
+	/*Tooltip abierto*/
+	&.open{
+		display: block;
+	}
+	
+	&.rounded{
+		.rounded-borders();
+	}
+	/*Triangulo abajo*/
+	&.top{
+		&:before,
+		&:after{
+			content: "";
+			position: absolute;
+			left: 50%;
+			margin-left: -8px;
+			border-top:8px solid @gray-light;
+			border-left:8px solid transparent;
+			border-right:8px solid transparent;
+		}
+		&:before{
+			bottom: -8px;
+		}
+		&:after{
+			bottom: -7px;
+			border-top-color: @gray-lighter;
+		}
+	}
+	/*Triangulo arriba*/
+	&.bottom{
+		&:before,
+		&:after{
+			content: "";
+			position: absolute;
+			left: 50%;
+			margin-left: -8px;
+			border-bottom:8px solid @gray-light;
+			border-left:8px solid transparent;
+			border-right:8px solid transparent;
+		}
+		&:before{
+			top: -8px;
+		}
+		&:after{
+			top: -7px;
+			border-bottom-color: @gray-lighter;
+		}
+	}
+	/*Triangulo a la derecha*/
+	&.left{
+		&:before,
+		&:after{
+			content: "";
+			position: absolute;
+			top: 50%;
+			margin-top: -8px;
+			border-top:8px solid transparent;
+			border-bottom:8px solid transparent;
+			border-left:8px solid @gray-light;
+		}
+		&:before{
+			right: -8px;
+		}
+		&:after{
+			border-left-color:@gray-lighter;
+			right: -7px;
+		}
+	}
+	/*Triangulo a la izquierda*/
+	&.right{
+		&:before,
+		&:after{
+			content: "";
+			position: absolute;
+			top: 50%;
+			margin-top: -8px;
+			border-top:8px solid transparent;
+			border-bottom:8px solid transparent;
+			border-right:8px solid @gray-light;
+		}
+		&:before{
+			left: -8px;
+		}
+		&:after{
+			border-right-color:@gray-lighter;
+			left: -7px;
+		}
+	}
+}
+//Temas
+.tooltip-theme(inverse,@gray-darker);
+.tooltip-theme(primary,@primary);
+.tooltip-theme(secondary,@secondary);
+.tooltip-theme(success,@success);
+.tooltip-theme(tip,@tip);
+.tooltip-theme(warning,@warning);
+.tooltip-theme(danger,@danger);

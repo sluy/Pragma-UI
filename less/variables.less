@@ -1,0 +1,223 @@
+/*
+	Variables usadas en todo el framework
+	*/
+/**************************************************
+COLORES
+***************************************************/
+@dark:             #000; //Color más oscuro
+@light:            #fff; //Color más claro
+@gray:             lighten(@dark, 33.5%);
+@primary:          #1f62f9;
+@secondary:        #d30c42;
+@success:          #30ca51;
+@tip:              #30a8ca;
+@warning:          #fda700;
+@danger:           #f42300;
+
+@gray-darker:      lighten(@dark, 13.5%);
+@gray-dark:        lighten(@dark, 20%);
+@gray-light:       lighten(@dark, 80.7%);
+@gray-lighter:     lighten(@dark, 95.5%);
+
+@primary-darker:   darken(@primary, 13.5%);
+@primary-dark:     darken(@primary, 5%);
+@primary-light:    lighten(@primary, 5%);
+@primary-lighter:  lighten(@primary, 13.5%);
+
+@secondary-darker:   darken(@secondary, 13.5%);
+@secondary-dark:     darken(@secondary, 5%);
+@secondary-light:    lighten(@secondary, 5%);
+@secondary-lighter:  lighten(@secondary, 13.5%);
+
+
+@success-darker:   darken(@success, 13.5%);
+@success-dark:     darken(@success, 5%);
+@success-light:    lighten(@success, 5%);
+@success-lighter:  lighten(@success, 13.5%);
+
+@tip-darker:       darken(@tip, 13.5%);
+@tip-dark:         darken(@tip, 5%);
+@tip-light:        lighten(@tip, 5%);
+@tip-lighter:      lighten(@tip, 13.5%);
+
+@warning-darker:   darken(@warning, 13.5%);
+@warning-dark:     darken(@warning, 5%);
+@warning-light:    lighten(@warning, 5%);
+@warning-lighter:  lighten(@warning, 13.5%);
+
+@danger-darker:   darken(@danger, 13.5%);
+@danger-dark:     darken(@danger, 5%);
+@danger-light:    lighten(@danger, 5%);
+@danger-lighter:  lighten(@danger, 13.5%);
+
+
+/**************************************************
+REJILLAS
+***************************************************/
+/**/
+@row-xs-width: (@xs-max-width - 80);
+@row-sm-width: (@sm-max-width - 80);
+@row-md-width: (@md-max-width - 80);
+@row-lg-width: (@lg-min-width - 80);
+//== Columnas
+//
+//##
+@sm-min-width: 768px;
+@md-min-width: 992px;
+@lg-min-width: 1200px;
+@xs-max-width: (@sm-min-width - 1);
+@sm-max-width: (@md-min-width - 1);
+@md-max-width: (@lg-min-width - 1);
+//== N# de columnas del grid
+//
+//##
+@grid-columns : 12;
+//== padding entre columnas del grid al agregar la clase "col"
+//
+//##
+@grid-column-margin : 30px;
+
+/**************************************************
+COLORES DE LA PÁGINA
+***************************************************/
+/* Color de fondo por defecto de la página.*/
+@body-bg:               @light;
+/* Color del texto por defecto de la página.*/
+@text-color:            @gray;
+/* Color para los links.*/
+@link-color:            @primary;
+/* Color para los links al posicionar el puntero.*/
+@link-hover-color:      @primary-darker;
+
+/**************************************************
+TIPOGRAFÍA
+***************************************************/
+/*Fuentes por defecto sans serif*/
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*Fuentes por defecto serif*/
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+/*Fuentes por defecto monospace para <pre>,<code> y <kbd>*/
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+
+/*Fuente por defecto de la web**/
+@font-family:        @font-family-sans-serif;
+
+/*Fuente normal*/
+@font-weight : 300;
+/*Fuente negrita*/
+@font-weight-bold : 700;
+
+/*Tamaño por defecto de la fuente: 16px para ser compatible con dispositivos retina*/
+@font-size:          16px;
+/*Tamaño de fuente larga*/
+@font-size-large:         ceil((@font-size * 1.25)); // ~20px
+/*Tamaño de fuente pequeña*/
+@font-size-small:         ceil((@font-size * 0.85)); // ~14px
+
+/*Tamaño del encabezado 1*/
+@font-size-h1:            floor((@font-size * 2)); // ~32px
+/*Tamaño del encabezado 2*/
+@font-size-h2:            floor((@font-size * 1.7)); // ~27px
+/*Tamaño del encabezado 3*/
+@font-size-h3:            ceil((@font-size * 1.5)); // ~24px
+/*Tamaño del encabezado 4*/
+@font-size-h4:            ceil((@font-size * 1.25)); // ~20px
+/*Tamaño del encabezado 5*/
+@font-size-h5:            @font-size;
+/*Tamaño del encabezado 6*/
+@font-size-h6:            ceil((@font-size * 0.85)); // ~14px
+
+/*Tamaño de la línea usada en la gran mayoría de los controles*/
+@line-height:        1.4; // 20/14
+/*Tamaño calculado de la linea (tamaño de la fuente * línea), usada para margenes*/
+@line-height-computed:    floor((@font-size * @line-height)); // ~20px
+
+/*Configuración de los encabezados*/
+@headings-font-family:    inherit;
+@headings-font-weight:    500;
+@headings-line-height:    1.2;
+@headings-color:          inherit;
+@headings-hover-color:    @dark;
+@headings-subtitle-color: @gray-light;
+@headings-hover-subtitle-color: @gray;
+/*Configuración de la linea de división hr*/
+@hr-border-color: @gray-light;
+
+
+
+/**************************************************
+TABLAS
+***************************************************/
+@table-margin-vertical:         @grid-column-margin;
+/*Color de fondo por defecto de las tablas*/
+@table-bg:                      transparent;
+@table-cell-padding:            10px;
+/*Color de fondo,color de fuente y ancho de la fuente por defecto para los encabezados de las tablas*/
+@table-head-bg:                 @gray;
+@table-head-color:              @light;
+@table-head-font-weight:        @font-weight;
+/*Color de fondo y de letra,margen interno para las tablas 'zebra'*/
+@table-zebra-bg:                @gray-lighter;
+@table-zebra-color:             inherit;
+@table-zebra-cell-spacing:      2px;
+/*Color de fondo y de letra para la tabla 'hover'*/
+@table-hover-bg:                darken(@table-zebra-bg,5%);
+@table-hover-color:             inherit;
+/*Borde por defecto para la tabla 'bordered'*/
+@table-bordered-border-color:   @gray-light;
+/*Color de fondo y letra para una fila activa 'active'*/
+@table-row-active-bg:           @table-hover-bg;
+@table-row-active-color:        @table-hover-color;
+
+
+
+
+
+@control-font-size: @font-size;
+@control-line-height: floor(@control-font-size*1.2);
+@control-padding: floor(@grid-column-margin*0.5);
+@control-height: floor(@control-line-height + (@control-padding));
+
+@control-xs-font-size: floor((@control-font-size * 0.65));
+@control-xs-line-height: floor(@control-font-size*0.8);
+@control-xs-padding: @control-padding;
+@control-xs-height: floor(@control-xs-line-height + (@control-padding));
+
+@control-sm-font-size: ceil((@control-font-size * 0.85));
+@control-sm-line-height: floor(@control-font-size*1);
+@control-sm-padding: @control-padding;
+@control-sm-height: floor(@control-sm-line-height + (@control-padding));
+
+@control-lg-font-size: floor((@control-font-size * 1.3));
+@control-lg-line-height: floor(@control-font-size*1.5);
+@control-lg-padding: @control-padding;
+@control-lg-height:floor(@control-lg-line-height + (@control-padding));
+
+
+
+@navbar-height: 46px;
+@subnav-height: 40px;
+
+
+@slider-zindex: 900;
+@sticky-zindex : 900;
+@offcanvas-zindex : 1000;
+@navbar-zindex : 1000;
+@scrolltop-zindex : 1100;
+
+@dropdown-zindex: 1200;
+@modal-zindex : 1300;
+@notify-zindex : 1400;
+@tooltip-zindex : 1600;
+
+
+
+
+
+
+
+
+
+
+
+

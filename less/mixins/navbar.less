@@ -1,0 +1,58 @@
+.navbar-theme(@name,@bg,@color : @light,@active-bg : darken(@bg,20%)){
+
+
+	nav.navbar.@{name}{
+		color: @color;
+		background-color: @bg;
+		
+		
+		& > section.brand,
+		& > .row > section.brand{
+			& > a,
+			& > a:visited{
+				color: @color;
+			}
+		}
+		/*Contenido de la barra de navegación*/
+		& > section > ul.nav > li,
+		& > .row > section > ul.nav > li,
+		& > .responsive-nav > section > ul.nav > li,
+		& > .responsive-nav > .row > section > ul.nav > li{
+			/*Vínculos*/
+			& > a,
+			& > a:visited{
+				color: fade(@color,90%);
+			}
+			/*Vínculos activos y al pasar el mouse*/
+			& > a:hover,
+			&.active > a,
+			&.active > a:visited{
+				background-color: @active-bg;
+				color: @color;
+			}
+			/*Vínculos deshabilitados*/
+			&.disabled > a,
+			&.disabled > a:hover,
+			&.disabled > a:visited{
+				color: fade(@color,30%);
+				background-color: transparent;
+			}
+		}
+		/*Líneas divisorias en la navegación y secciones*/
+		& > section.divider,
+		& > .row > section.divider,
+		& > section > ul.nav > li.divider,
+		& > .row > section > ul.nav > li.divider{
+			border-left-color:lighten(@bg,6%);
+			background-color: darken(@bg,6%);
+		}
+		/*Líneas divisorias en la navegación y secciones del menú responsivo*/
+		& > .responsive-nav > section.divider,
+		& > .responsive-nav > .row > section.divider,
+		& > .responsive-nav > section > ul.nav > li.divider,
+		& > .responsive-nav > .row > section > ul.nav > li.divider{
+			border-top-color:lighten(@bg,6%);
+			background-color: darken(@bg,6%);
+		}
+	}
+}

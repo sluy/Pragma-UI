@@ -1,0 +1,124 @@
+/***************************************
+ * DESLIZADOR DE CONTENIDOS
+ ***************************************/
+.slider {
+	position: relative;
+	display: none;
+	.size(auto,100%);
+	overflow: hidden;
+	list-style: none;
+	margin:0px;
+	padding:0px;
+	//Slider con sombra
+	&.shadow
+	{
+		.drop-shadow(0px,0px,5px,@dark);
+	}
+	//Configuración de los ítems.
+	& > .item
+	{
+		position: relative;
+		display: block;
+		width: 100%;
+	}
+	//Navegación.
+	& > .nav
+	{
+		position: absolute;
+		display: block;
+		height:40px;
+		width: 40px;
+		line-height: 40px;
+		top:50%;
+		margin-top: -20px;
+		.padding(0px);
+		background-color: fade(@gray-dark,60%);
+		color:@light;
+		text-align: center;
+		.circular-borders();
+		&:hover
+		{
+			background-color: fade(@gray-dark,80%);
+		}
+	}
+	//Paginación
+	& > ul.slider-pagination
+	{
+		display: block;
+		width: auto;
+		list-style: none;
+		margin: 0px;
+		padding:0px;
+		position: absolute;
+		.clearfix();
+		& > li
+		{
+			display: block;
+			float: left;
+			&:last-child
+			{
+				margin-right: 0px;
+			}
+			& > a,
+			& > a:visited
+			{
+				display: block;
+				width: 100%;
+				height:100%;
+				text-align: center;
+			}
+		}
+		//Miniaturas
+		&.thumbs > li
+		{
+			height:40px;
+			width: 40px;
+			line-height: 40px;
+			font-size: 25px;
+			& > a,
+			& > a:visited
+			{
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: 100%;
+				color: @dark;
+				.opacity(0.6);
+			}
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:visited,
+			& > a:hover
+			{
+				.opacity(1);
+			}
+		}
+		//Circulos
+		&.bullets > li
+		{
+			height: 20px;
+			width: 20px;
+			line-height: 20px;
+			margin-right:3px;
+			& > a,
+			& > a:visited
+			{
+				background-color: @gray-lighter;
+				color:@gray;
+				border-radius: 20px;
+				font-size: @font-size-small;
+				.drop-shadow(0px,0px,2px,fade(@dark,50%));
+			}
+			&.active > a,
+			&.active > a:hover,
+			&.active > a:visited,
+			& > a:hover
+			{
+				background-color: @gray;
+				color:@gray-lighter;
+				.drop-shadow(0px,0px,2px,fade(@light,50%));
+			}
+		}
+	}
+}
+
+

@@ -1,0 +1,72 @@
+.scrolltop-theme(@name,@bg-color,@font-color:@light){
+	.scroll-top.@{name},
+	.scroll-top.@{name}:visited{
+		background-color: @bg-color;
+		color: @font-color;
+	}
+}
+
+.scroll-top{
+	
+	
+	&,
+	&:visited{
+		display: none;
+		position: fixed;
+		overflow: hidden;
+		z-index: @scrolltop-zindex;
+		border-radius: @control-height;
+		.size(@control-height,@control-height);
+		line-height: @control-height;
+		font-size: @control-font-size;
+		color: @light;
+		background-color: @gray-light;
+		text-align: center;
+		opacity: 0.9;
+		/*Offset*/
+		bottom: 30px;
+		right:30px;
+		&.left{
+			/*Offset*/
+			right: auto;
+			left: 30px;
+		}
+		
+		&.xs{
+			border-radius: @control-xs-height;
+			.size(@control-xs-height,@control-xs-height);
+			line-height: @control-xs-height;
+			font-size: @control-xs-font-size;
+		}
+		
+		&.sm{
+			border-radius: @control-sm-height;
+			.size(@control-sm-height,@control-sm-height);
+			line-height: @control-sm-height;
+			font-size: @control-sm-font-size;
+		}
+		
+		&.lg{
+			border-radius: @control-lg-height;
+			.size(@control-lg-height,@control-lg-height);
+			line-height: @control-lg-height;
+			font-size: @control-lg-font-size;
+		}
+		
+		&.show{
+			display: block;
+		}
+	}
+	&:hover{
+		opacity: 1;
+	}
+}
+
+.scrolltop-theme(inverse,@gray-dark);
+.scrolltop-theme(primary,@primary);
+.scrolltop-theme(secondary,@primary);
+.scrolltop-theme(success,@success);
+.scrolltop-theme(tip,@tip);
+.scrolltop-theme(warning,@warning);
+.scrolltop-theme(danger,@danger);
+

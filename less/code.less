@@ -1,0 +1,46 @@
+code,
+kbd,
+pre,
+samp {
+  font-family: @font-family-monospace;
+}
+code {
+  padding: 2px 4px;
+  font-size: 75%;
+  color:  #c7254e;
+  background-color: lighten(#c7254e, 50%);
+  text-decoration: none;
+  border-radius: 0;
+}
+
+pre{
+  background: @gray-lighter;
+  padding:floor(@grid-column-margin/2) floor(@grid-column-margin/2);
+  color:@gray;
+  border: 1px solid @gray-light;
+	-moz-tab-size:    2;
+  -o-tab-size:      2;
+  -webkit-tab-size: 2;
+  -ms-tab-size:     2;
+  tab-size:         2;
+}
+
+
+pre code{
+	background-color: transparent;
+}
+
+
+pre.scrollable {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+kbd{
+  background: @gray-darker;
+  color:@gray-lighter;
+  border:1px solid @dark;
+  padding:5px;
+  padding-bottom:2px;
+  font-size: 75%;
+}

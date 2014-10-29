@@ -1,0 +1,25 @@
+*.margin-top{
+	margin-top: floor(@grid-column-margin/2);
+}
+*.margin-left{
+	margin-left: floor(@grid-column-margin/2);
+}
+*.margin-bottom{
+	margin-bottom: floor(@grid-column-margin/2);
+}
+*.margin-right{
+	margin-right: floor(@grid-column-margin/2);
+}
+
+*.margin-vertical{
+	.margin-vertical(@grid-column-margin);
+}
+*.margin-horizontal{
+	.margin-horizontal(@grid-column-margin);
+}
+
+*.margin-zero{
+	.margin-reset();
+}
+
+
