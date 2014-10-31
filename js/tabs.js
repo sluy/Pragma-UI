@@ -180,7 +180,7 @@ $(function (Pragma, $, undefined)
 		configure();
 	}
 	//Versión del plugin
-	Pragma.Libs.Sticky.Tabs = "1.0.0";
+	Pragma.Libs.Tabs.Ver = "1.0.0";
 	//Opciones de configuración
 	Pragma.Libs.Tabs.Defaults = {
 		fx : true,         //Determina si estará activo o no el efecto de los contenidos.
