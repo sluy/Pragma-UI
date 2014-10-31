@@ -1,0 +1,22 @@
+.tabs-theme(@name, @border-color){
+	ul.tabs.@{name},
+	ul.tabs.vertical.right.@{name}
+	{
+		& > li.active > a,
+		& > li.active > a:hover,
+		& > li.active > a:visited,
+		& > li:not(.disabled) > a:hover{
+			border-color: @border-color;
+		}
+	}
+	ul.tabs > li:not(.disabled).@{name},
+	ul.tabs.vertical.right > li:not(.disabled).@{name}
+	{
+		&.active > a,
+		&.active > a:hover,
+		&.active > a:visited,
+		& > a:hover{
+			border-color: @border-color;
+		}
+	}
+}

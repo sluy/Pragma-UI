@@ -1,27 +1,6 @@
-.tabs-theme(@name, @border-color){
-	ul.tabs.@{name},
-	ul.tabs.vertical.right.@{name}
-	{
-		& > li.active > a,
-		& > li.active > a:hover,
-		& > li.active > a:visited,
-		& > li:not(.disabled) > a:hover{
-			border-color: @border-color;
-		}
-	}
-	ul.tabs > li:not(.disabled).@{name},
-	ul.tabs.vertical.right > li:not(.disabled).@{name}
-	{
-		&.active > a,
-		&.active > a:hover,
-		&.active > a:visited,
-		& > a:hover{
-			border-color: @border-color;
-		}
-	}
-}
-
-
+/**************************************
+ * PESTAÑAS
+ **************************************/
 ul.tabs{
 	.size(auto,100%);
 	line-height: @control-height;
@@ -30,11 +9,11 @@ ul.tabs{
 	margin: 0px;
 	border-bottom: 1px solid @gray-light;
 	margin-bottom: floor(@grid-column-margin/2);
-	
+	//Pestañas a la derecha
 	&.right{
 		text-align: right;
 	}
-	
+	//Pestañas verticales
 	&.vertical{
 		border-bottom: none;
 		border-right: 1px solid @gray-light;
@@ -48,9 +27,8 @@ ul.tabs{
 				border-bottom: none;
 				border-right: 3px solid transparent;
 			}
-
 		}
-		
+		//Pestañas verticales a la derecha
 		&.right {
 			border-right: none;
 			border-left: 1px solid @gray-light;
@@ -73,7 +51,7 @@ ul.tabs{
 			}
 		}
 	}
-	
+	//Pestaña
 	& > li{
 		display: inline-block;
 		margin-left:-5px;
@@ -88,6 +66,7 @@ ul.tabs{
 			border-bottom: 3px solid transparent;
 			color: lighten(@text-color,30%);
 		}
+		//Pestaña activa
 		&.active > a,
 		&.active > a:hover,
 		&.active > a:visited,
@@ -95,7 +74,7 @@ ul.tabs{
 			color: @text-color;
 			border-color: @gray-darker;
 		}
-      
+    //Pestaña deshabilitada
 		&.disabled > a,
 		&.disabled > a:hover,
 		&.disabled > a:visited{
@@ -103,9 +82,42 @@ ul.tabs{
 			border-color: transparent;
 		}
 	}
-
 }
-
+//Contenidos. Para el plugin Tabs.
+ul.tabs-content
+{
+	.size(auto,100%);
+	line-height: @control-height;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: floor(@grid-column-margin/2);
+	//Contenido de la pestaña
+	& > li
+	{
+		.size(auto,100%);
+		.padding(@grid-column-margin);
+		display: none;
+		&.active
+		{
+			display: block;
+		}
+	}
+}
+//Contenedor del contenido. Creado dinámicamente por el plugin tabs.
+.tabs-wrapper
+{
+	height: auto;
+	width: 100%;
+	overflow: hidden;
+	//Contenido de la pestaña
+	& ul.tabs-content > li
+	{
+		float: left;
+		display: block;
+	}
+}
+//Temas visuales
 .tabs-theme(primary,@primary);
 .tabs-theme(secondary,@secondary);
 .tabs-theme(success,@success);
