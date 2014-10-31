@@ -31,7 +31,7 @@ $(function (Pragma, $, undefined)
 	Pragma.Libs.Tabs = function (element, options)
 	{
 		var self = this;
-		self.$el = element; //Elemento al cual se aplica el Offcanvas
+		self.$el = element; 
 		self.options = options; //Opciones
 		self.tabs = {};
 		self.active = 0;

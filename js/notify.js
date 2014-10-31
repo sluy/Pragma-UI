@@ -351,7 +351,7 @@ $(function( Pragma, $, undefined ) {
    */
   $(document).on('click.pragma.notify.close', '[data-notify-close]', function (e) {
     e.preventDefault();
-    var $notify = $(this).data("Pragma.Modal");   
+    var $notify = $(this).data("Pragma.Notify");   
     if(!$notify){
       $notify = Pragma.Utils.get_target($(this),"notify-close",false,".notify");
       if($notify){

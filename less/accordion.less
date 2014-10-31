@@ -1,0 +1,24 @@
+/******************************
+ * PLUGIN ACCORDION
+ ******************************/
+//Borde inferior de los páneles removido, salvo para el último
+.accordion > .panel:not(:last-child)
+{
+	border-bottom: none;
+}
+//Ocultamiento del cuerpo del panel
+.accordion > .panel > .body
+{
+		display:none;
+}
+//Cursor a usar en el header
+.accordion > .panel .header
+{
+	cursor:pointer;	
+}
+//panel abierto 
+.accordion > .panel > .body.open
+{
+	display:block;
+}
+
